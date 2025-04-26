@@ -91,7 +91,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Color_Threshold: 1.68
+    - _Color_Threshold: 0.34
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -99,12 +99,13 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _ExtendColorToOutline: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _NoiseScale: 30.38
-    - _Normal_Threshold: 0.98
+    - _Normal_Threshold: 0.67
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
@@ -118,14 +119,15 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _mul: 0
+    - _mul: 4.03
     - _sub: 1.13
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SketchColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HSV: {r: 8, g: 2.5, b: -0.4, a: 0}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0.62352943}
+    - _SketchColor: {r: 0, g: 0, b: 0, a: 0.58431375}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
