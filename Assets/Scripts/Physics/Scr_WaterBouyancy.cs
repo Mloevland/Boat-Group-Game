@@ -2,7 +2,9 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Unity.Burst;
 
+[BurstCompile(CompileSynchronously = true)]
 public class Scr_WaterBouyancy : MonoBehaviour
 {
     public string[] floatingTags = { "Material/Wood", "Material/Plastic" };
@@ -59,6 +61,7 @@ public class Scr_WaterBouyancy : MonoBehaviour
             isEmpty = true;
     }
 
+    [BurstCompile]
     private void FixedUpdate()
     {
         if (isEmpty)
