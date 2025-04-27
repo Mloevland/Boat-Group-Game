@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ani: {fileID: 4999406049147632636}
-  moveSpeed: 5
+  moveSpeed: 4
 --- !u!54 &4411744539480700244
 Rigidbody:
   m_ObjectHideFlags: 0

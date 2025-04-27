@@ -9,15 +9,16 @@ public class Scr_InputManager : MonoBehaviour
 
     public Vector2Event moveEvent;
     private Vector2 moveDir;
+    public BoolEvent jumpEvent;
 
-    public Vector3 forwardTruth, rightTruth;
-    public Vector3 currentForward, currentRight;
+    private Vector3 forwardTruth, rightTruth;
+    private Vector3 currentForward, currentRight;
 
-    public bool relativeAligned;
+    private bool relativeAligned;
 
     private Vector2 lastFrameInput;
 
-    public Vector2 DebugAlignmentAngle = Vector2.zero;
+    private Vector2 DebugAlignmentAngle = Vector2.zero;
 
     private void Start()
     {
@@ -124,6 +125,18 @@ public class Scr_InputManager : MonoBehaviour
             moveDir = Vector2.zero;
             moveEvent.Raise(Vector2.zero);
             AlignRelatives();
+        }
+    }
+
+    public void GetJump(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            jumpEvent.Raise(true);
+        }
+        if (context.canceled)
+        {
+            jumpEvent.Raise(false);
         }
     }
 

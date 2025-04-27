@@ -18,11 +18,19 @@ public class Scr_CharacterMovement : MonoBehaviour
 
     public void MoveCharacter(Vector2 direction)
     {
-
+        direction = Vector2.ClampMagnitude(direction, 1);
         ani.SetFloat("Speed", direction.magnitude);
         //Debug.Log(direction);
-        transform.position = transform.position + new Vector3(direction.x,0,direction.y).normalized * Time.deltaTime * moveSpeed;
+        transform.position = transform.position + new Vector3(direction.x,0,direction.y) * Time.deltaTime * moveSpeed;
         Quaternion desiredRotation = Quaternion.Euler(0, Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg, 0);
         transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * 8f); 
+    }
+
+    public void Jump(bool value)
+    {
+        if(!value)
+            return;
+
+        ani.SetTrigger("Jump");
     }
 }
