@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30b6415f9e90e3c49bc337d2309c9033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  criticalObjectTexture: {fileID: 8400000, guid: e66dedd49d887b2419593d85a20f0f5d, type: 2}
 --- !u!114 &470545457372900728
 MonoBehaviour:
   m_ObjectHideFlags: 0
