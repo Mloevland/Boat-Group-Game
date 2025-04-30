@@ -11,6 +11,10 @@ public class Scr_CharacterMovement : MonoBehaviour
     public float deccelleration = 10f;
     public float velPower = 2f;
     public float jumpForce = 4f;
+
+    //Movement Variables
+    private bool isGrounded = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,7 +24,14 @@ public class Scr_CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Physics.Raycast(transform.position, Vector3.down, 1.05f))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            //isGrounded = false;
+        }
     }
 
     public void MoveCharacter(Vector2 direction)
@@ -40,11 +51,15 @@ public class Scr_CharacterMovement : MonoBehaviour
 
     public void Jump(bool value)
     {
+        if (!isGrounded)
+            return;
+
         if(!value)
             return;
 
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         ani.SetTrigger("Jump");
+        isGrounded = true;
     }
 
     private Vector2 CalculateMovementForce(Vector2 playerInput, float speedMultiplier)
