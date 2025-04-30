@@ -10,6 +10,7 @@ public class Scr_CharacterMovement : MonoBehaviour
     public float acceleration = 10f;
     public float deccelleration = 10f;
     public float velPower = 2f;
+    public float jumpForce = 4f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,8 +30,12 @@ public class Scr_CharacterMovement : MonoBehaviour
         Vector2 movement = CalculateMovementForce(direction, moveSpeed);
         rb.AddForce(new Vector3(movement.x, 0, movement.y) * Time.deltaTime);
         //transform.position = transform.position + new Vector3(direction.x,0,direction.y) * Time.deltaTime * moveSpeed;
-        Quaternion desiredRotation = Quaternion.Euler(0, Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg, 0);
-        transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * 8f); 
+        if(direction != Vector2.zero)
+        {
+            Quaternion desiredRotation = Quaternion.Euler(0, Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg, 0);
+            transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * 8f);
+        }
+       
     }
 
     public void Jump(bool value)
@@ -38,7 +43,7 @@ public class Scr_CharacterMovement : MonoBehaviour
         if(!value)
             return;
 
-        rb.AddForce(Vector3.up * 3f, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         ani.SetTrigger("Jump");
     }
 

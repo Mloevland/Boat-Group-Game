@@ -28,9 +28,11 @@ public class Scr_InputManager : MonoBehaviour
 
     private void Update()
     {
+        moveEvent.Raise(ConvertToCameraRelative(moveDir));
+
         if (moveDir != Vector2.zero)
         {
-            moveEvent.Raise(ConvertToCameraRelative(moveDir));
+
         }
     }
 

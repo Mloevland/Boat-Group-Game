@@ -312,10 +312,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ani: {fileID: 2261127495971671626}
   rb: {fileID: 6575246076009479531}
-  moveSpeed: 5
+  moveSpeed: 6
   acceleration: 10
-  deccelleration: 10
+  deccelleration: 15
   velPower: 2
+  jumpForce: 3.5
 --- !u!205 &6529624913788165221
 LODGroup:
   m_ObjectHideFlags: 0
@@ -352,8 +353,8 @@ Rigidbody:
   m_GameObject: {fileID: 4812904353001049738}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 0.1
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
