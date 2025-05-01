@@ -82,7 +82,7 @@ public class Scr_InputManager : MonoBehaviour
 
     private void AlignRelatives()
     {
-        Debug.Log("Aligned Relatives");
+        //Debug.Log("Aligned Relatives");
         currentForward = forwardTruth;
         currentRight = rightTruth;
     }
