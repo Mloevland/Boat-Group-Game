@@ -1741,7 +1741,7 @@
     "m_ObjectId": "0127be5b7a2d43179a29093bb340c058",
     "m_Title": "Get Main Light",
     "m_Position": {
-        "x": -2594.000244140625,
+        "x": -2594.0,
         "y": 65.0
     }
 }
@@ -1880,8 +1880,8 @@
     "m_ObjectId": "0a2dbab899d2412ea6f27ff3705c9a38",
     "m_Title": "Calculate Main Light",
     "m_Position": {
-        "x": -2023.0001220703125,
-        "y": -372.0000305175781
+        "x": -2023.0,
+        "y": -372.0
     }
 }
 
@@ -2132,8 +2132,8 @@
     "m_ObjectId": "11f02b5f32644c35afe9d3885a32cf1d",
     "m_Title": "Clamp Main Light Fresnel",
     "m_Position": {
-        "x": -494.0000915527344,
-        "y": -1795.0001220703125
+        "x": -494.0,
+        "y": -1795.0
     }
 }
 
@@ -3846,8 +3846,8 @@
     "m_ObjectId": "363d85da20fb4e48b03c1d96a9f2ea7f",
     "m_Title": "Clamp Main Light Specular",
     "m_Position": {
-        "x": -494.0000915527344,
-        "y": -1011.0000610351563
+        "x": -494.0,
+        "y": -1011.0
     }
 }
 
@@ -4023,8 +4023,8 @@
     "m_ObjectId": "375815ac3de941b5b8ef21f73a70a8ab",
     "m_Title": "Calculate Main Light Fresnel",
     "m_Position": {
-        "x": -1843.0001220703125,
-        "y": -1919.0001220703125
+        "x": -1843.0,
+        "y": -1919.0
     }
 }
 
@@ -9076,8 +9076,8 @@
     "m_ObjectId": "c4b72cad3b4544988751b6e2a4183e7d",
     "m_Title": "Calculate Main Light Specular",
     "m_Position": {
-        "x": -3005.000244140625,
-        "y": -1287.0001220703125
+        "x": -3005.0,
+        "y": -1287.0
     }
 }
 

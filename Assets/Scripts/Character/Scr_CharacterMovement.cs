@@ -19,6 +19,11 @@ public class Scr_CharacterMovement : MonoBehaviour
     private bool bufferJumpReset = false;
 
     private bool overrideMovement;
+    private Vector3 matchStartPosition;
+    private Vector3 matchPosition;
+    private Quaternion matchRotation;
+    private float normalisedStartTime;
+    private float normalisedEndTime;
 
     //Movement Variables
     private bool isGrounded = true;
@@ -31,14 +36,33 @@ public class Scr_CharacterMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (overrideMovement)
+        {
+            //MatchTarget();
+
+            return;
+        }
+
+
         CheckGrounded();
 
         if (!isGrounded)
         {
             RaycastHit hit;
-            if(Physics.Raycast(positionReferencePoint.position,transform.forward, out hit, 0.6f, groundLayer))
+            if(Physics.Raycast(positionReferencePoint.position, transform.forward, out hit, 0.6f, groundLayer))
             {
-                PlayOverrideAnimation("Climb");
+                RaycastHit hit2;
+
+                if(Physics.Raycast(hit.point + Vector3.up*2 - hit.normal*0.3f, Vector3.down, out hit2, 2f, groundLayer))
+                {
+                    PlayOverrideAnimation("Climb",transform.position, new Vector3(hit.point.x,hit2.point.y,hit.point.z), 0.05f, 0.6f);
+                    Debug.DrawLine(hit.point + Vector3.up * 2 - hit.normal * 0.3f, hit2.point, Color.blue, 5);
+                }
+                else
+                {
+                    Debug.DrawLine(hit.point + Vector3.up*2 - hit.normal * 0.5f, hit.point + Vector3.up*2 - hit.normal * 0.5f + Vector3.down * 2f, Color.red);
+                }
+               
             }
             else
             {
@@ -49,8 +73,53 @@ public class Scr_CharacterMovement : MonoBehaviour
 
     }
 
-    public void PlayOverrideAnimation(string animationName)
+    [ContextMenu("Test Animation")]
+    public void TestOverrideAni()
     {
+        PlayOverrideAnimation("Climb",transform.position, transform.position + Vector3.up * 5, 0.0f, 0.5f);
+    }
+
+    public void PlayOverrideAnimation(string animationName,Vector3 startPos, Vector3 matchPos, float normalizedStartTime, float normalizedEndTime)
+    {
+        ani.applyRootMotion = true;
+        rb.isKinematic = true;
+
+        matchPosition = matchPos;
+        matchStartPosition = startPos;
+        matchRotation = Quaternion.identity;
+        normalisedStartTime = normalizedStartTime;
+        normalisedEndTime = normalizedEndTime;
+
+        ani.SetTrigger(animationName);
+        overrideMovement = true;
+    }
+
+    public void MatchTarget()
+    {
+        if (ani.isMatchingTarget)
+            return;
+
+        float normalizeTime = Mathf.Clamp01(ani.GetCurrentAnimatorStateInfo(2).normalizedTime);
+
+        if(normalizeTime < normalisedStartTime)
+            return;
+        if (normalizeTime > normalisedEndTime)
+            return;
+
+        float remappedTime = Remap(normalizeTime, normalisedStartTime, normalisedEndTime, 0f, 1f);
+
+        Debug.Log("Matching: " + normalizeTime + " and " + remappedTime);
+
+        //ani.MatchTarget(matchPosition, matchRotation, target, new MatchTargetWeightMask(Vector3.one,0), normalisedStartTime, normalisedEndTime);
+
+        transform.position = Vector3.Lerp(transform.position,Vector3.Lerp(matchStartPosition, matchPosition, remappedTime),Time.deltaTime * 12);
+    }
+
+    public void StopOverrideAnimation()
+    {
+        ani.applyRootMotion = false;
+        overrideMovement = false;
+        rb.isKinematic = false;
 
     }
 
@@ -76,6 +145,13 @@ public class Scr_CharacterMovement : MonoBehaviour
     private void Update()
     {
         HandleJumpBuffers();
+
+        if (overrideMovement)
+        {
+            MatchTarget();
+
+            return;
+        }
     }
 
     private void HandleJumpBuffers()
@@ -98,6 +174,9 @@ public class Scr_CharacterMovement : MonoBehaviour
 
     public void MoveCharacter(Vector2 direction)
     {
+        if (overrideMovement)
+            return;
+
         direction = Vector2.ClampMagnitude(direction, 1);
 
         if (isGrounded)
@@ -117,7 +196,13 @@ public class Scr_CharacterMovement : MonoBehaviour
         }
         else
         {
-            rb.AddForce(new Vector3(direction.x, 0, direction.y) * Time.deltaTime * 5, ForceMode.VelocityChange);
+            rb.AddForce(new Vector3(direction.x, 0, direction.y) * Time.deltaTime * 100);
+            if(rb.linearVelocity.magnitude > 0.8f)
+            {
+                Quaternion desiredRotation = Quaternion.Euler(0, Mathf.Atan2(rb.linearVelocity.x, rb.linearVelocity.z) * Mathf.Rad2Deg, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * 8f);
+            }
+            
         }
 
 
@@ -156,4 +241,11 @@ public class Scr_CharacterMovement : MonoBehaviour
         movement.y = Mathf.Pow(Mathf.Abs(accelDif.y) * accelRateY, velPower) * Mathf.Sign(accelDif.y);
         return movement;
     }
+
+    public float Remap( float value, float from1, float to1, float from2, float to2)
+    {
+        return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
+    }
+
+
 }
