@@ -20,10 +20,18 @@ Material:
   stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  m_LockedProperties: 
+  m_LockedProperties: _Texture_variation
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: e231e4c02c48ee14aafa55f7b1a843c1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Roughness:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_a8862be960504419818d48bedfcb4760_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: c92ad7196806249a8ba0205f6b39086d, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -71,25 +79,37 @@ Material:
     - _BlendSharpness: 2.39
     - _BlendSharpness_1: 2
     - _Blending: 8
+    - _FresnelSize: 0.2
+    - _FresnelStrength: 0.6
     - _Glossiness: 0
+    - _HueShiftAmount: 51.3
     - _ProjectionScale: 0.15
-    - _ProjectionScale_1: 0.42
+    - _ProjectionScale_1: 0.54
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Shadow_Bleed: 0.24
     - _Shadow_Bleed_1: 0.98
     - _Shadow_BlendSharpness: 2
     - _Shadow_Noise_Tiling: 2.65
-    - _Shadow_ProjectionScale: 1.15
-    - _Shadow_Strength: 0.532
+    - _Shadow_ProjectionScale: 1.8
+    - _Shadow_Strength: 5
     - _Shadow_UseWorldPos: 0
+    - _Smoothness: 19.01
+    - _SpecularCutOff: 0.14
+    - _SpecularFalloff: 1.08
+    - _SpecularStrength: 0.8
     - _Texture_Tiling: 1
+    - _Tiling: 1
+    - _UseFresnel: 1
+    - _UseSpecular: 1
     - _UseWorldPos: 0
     m_Colors:
-    - _AmbientColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color_1: {r: 0.8862745, g: 0.6250155, b: 0, a: 1}
+    - _AmbientColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+    - _Color: {r: 1, g: 0.5955362, b: 0, a: 1}
+    - _Color_1: {r: 0.8862745, g: 0.72410077, b: 0, a: 1}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Shadow_HSV: {r: -20, g: 1.4, b: 1, a: 0}
+    - _Shadow_Strenght: {r: 1.14, g: 0.35, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4369334307526757848
