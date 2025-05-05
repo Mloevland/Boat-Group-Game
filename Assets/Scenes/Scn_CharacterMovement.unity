@@ -5765,6 +5765,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f39d75e708a5b4ea7935b9db58f8fc9e, type: 3}
   m_PrefabInstance: {fileID: 839472100}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1083691464 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 9004934068407341034, guid: aaf4e05df2f2cfe4ba6a8ee801a8e5cc, type: 3}
+  m_PrefabInstance: {fileID: 5520005608416155597}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1103491954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12328,6 +12333,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6575246076009479531, guid: b37468ca0ab689846b53fb755140b75d, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575246076009479531, guid: b37468ca0ab689846b53fb755140b75d, type: 3}
+      propertyPath: m_LinearDamping
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575246076009479531, guid: b37468ca0ab689846b53fb755140b75d, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266615299040002397, guid: b37468ca0ab689846b53fb755140b75d, type: 3}
+      propertyPath: velPower
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266615299040002397, guid: b37468ca0ab689846b53fb755140b75d, type: 3}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12491,6 +12516,14 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 993206317}
+    - target: {fileID: 761282221712985033, guid: 58825dd8b94e31f4e98fec5f825aa28e, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 993206317}
+    - target: {fileID: 761282221712985033, guid: 58825dd8b94e31f4e98fec5f825aa28e, type: 3}
+      propertyPath: objectCam
+      value: 
+      objectReference: {fileID: 1083691464}
     - target: {fileID: 1008584730546092393, guid: 58825dd8b94e31f4e98fec5f825aa28e, type: 3}
       propertyPath: m_Name
       value: InputManager

@@ -27,6 +27,11 @@ public class Scr_CharacterMovement : MonoBehaviour
 
     //Movement Variables
     private bool isGrounded = true;
+    private bool isSliding = false;
+    private Vector2 movementInput;
+
+    //Sliding
+    private Vector3 slidingVelocity;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,14 +51,32 @@ public class Scr_CharacterMovement : MonoBehaviour
 
         CheckGrounded();
 
+        if (isSliding)
+        {
+            rb.AddForce(slidingVelocity * 10f, ForceMode.Acceleration);
+
+            if(slidingVelocity.magnitude < 0.01f)
+            {
+                
+                Debug.Log("Slide velocity below threshold " + slidingVelocity.magnitude);
+                SetSliding(false);
+            }
+            else
+            {
+                return;
+
+            }
+
+        }
+
         if (!isGrounded)
         {
             RaycastHit hit;
-            if(Physics.Raycast(positionReferencePoint.position, transform.forward, out hit, 0.6f, groundLayer))
+            if(Physics.Raycast(positionReferencePoint.position, transform.forward, out hit, 0.6f * transform.localScale.y, groundLayer))
             {
                 RaycastHit hit2;
 
-                if(Physics.Raycast(hit.point + Vector3.up*2 - hit.normal*0.3f, Vector3.down, out hit2, 2f, groundLayer))
+                if(Physics.Raycast(hit.point + (Vector3.up*2 - hit.normal*0.3f) * transform.localScale.y, Vector3.down, out hit2, 2f * transform.localScale.y, groundLayer))
                 {
                     PlayOverrideAnimation("Climb",transform.position, new Vector3(hit.point.x,hit2.point.y,hit.point.z), 0.05f, 0.6f);
                     Debug.DrawLine(hit.point + Vector3.up * 2 - hit.normal * 0.3f, hit2.point, Color.blue, 5);
@@ -69,6 +92,10 @@ public class Scr_CharacterMovement : MonoBehaviour
                 Debug.DrawLine(positionReferencePoint.position, positionReferencePoint.position + transform.forward*0.6f, Color.red);
             }
             
+        }
+        else
+        {
+            DoMovement();
         }
 
     }
@@ -126,9 +153,24 @@ public class Scr_CharacterMovement : MonoBehaviour
     private void CheckGrounded()
     {
         RaycastHit hit;
-        if (Physics.SphereCast(positionReferencePoint.position,0.8f, Vector3.down, out hit, 0.22f, groundLayer))
+        if (Physics.SphereCast(positionReferencePoint.position,0.8f * transform.localScale.y, Vector3.down, out hit, 0.22f * transform.localScale.y, groundLayer))
         {
             Debug.DrawLine(transform.position, hit.point, Color.green);
+
+            Debug.Log(Vector3.Dot(hit.normal, Vector3.up));
+            if(Vector3.Dot(hit.normal, Vector3.up) < 0.8f)
+            {
+                
+                slidingVelocity = Vector3.ProjectOnPlane(hit.normal, Vector3.up) * 0.5f;
+                Debug.Log("Start Slide with velocity " + slidingVelocity + " and a magnitude of " + slidingVelocity.magnitude);
+                SetSliding(true);
+            }
+            else
+            {
+                slidingVelocity *= 0.5f;
+                //SetSliding(false);
+            }
+
             if (isGrounded)
                 return;
             if (bufferJumpReset)
@@ -139,6 +181,11 @@ public class Scr_CharacterMovement : MonoBehaviour
         else
         {
             SetGrounded(false);
+            if (isSliding)
+            {
+
+            }
+                //SetSliding(false);
         }
     }
 
@@ -172,23 +219,42 @@ public class Scr_CharacterMovement : MonoBehaviour
         ani.SetBool("isGrounded", value);
     }
 
+    private void SetSliding(bool value)
+    {
+        isSliding = value;
+        if (!value)
+        {
+            slidingVelocity = Vector3.zero;
+        }
+        ani.SetBool("isSliding", value);
+    }
+
     public void MoveCharacter(Vector2 direction)
+    {
+
+        movementInput = Vector2.ClampMagnitude(direction, 1); 
+    }
+
+    private void DoMovement()
     {
         if (overrideMovement)
             return;
 
-        direction = Vector2.ClampMagnitude(direction, 1);
+        if (isSliding)
+            return;
+
+
 
         if (isGrounded)
         {
 
-            ani.SetFloat("Speed", direction.magnitude);
-            Vector2 movement = CalculateMovementForce(direction, moveSpeed);
-            rb.AddForce(new Vector3(movement.x, 0, movement.y) * Time.deltaTime);
+            ani.SetFloat("Speed", movementInput.magnitude);
+            Vector2 movement = CalculateMovementForce(movementInput, moveSpeed);
+            rb.AddForce(new Vector3(movement.x, 0, movement.y));
             //transform.position = transform.position + new Vector3(direction.x,0,direction.y) * Time.deltaTime * moveSpeed;
-            if (direction != Vector2.zero)
+            if (movementInput != Vector2.zero)
             {
-                Quaternion desiredRotation = Quaternion.Euler(0, Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg, 0);
+                Quaternion desiredRotation = Quaternion.Euler(0, Mathf.Atan2(movementInput.x, movementInput.y) * Mathf.Rad2Deg, 0);
                 transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * 8f);
             }
 
@@ -196,17 +262,14 @@ public class Scr_CharacterMovement : MonoBehaviour
         }
         else
         {
-            rb.AddForce(new Vector3(direction.x, 0, direction.y) * Time.deltaTime * 100);
-            if(rb.linearVelocity.magnitude > 0.8f)
+            rb.AddForce(new Vector3(movementInput.x, 0, movementInput.y));
+            if (rb.linearVelocity.magnitude > 0.8f)
             {
                 Quaternion desiredRotation = Quaternion.Euler(0, Mathf.Atan2(rb.linearVelocity.x, rb.linearVelocity.z) * Mathf.Rad2Deg, 0);
                 transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * 8f);
             }
-            
+
         }
-
-
-        
     }
 
     private void CheckForObstacles()
