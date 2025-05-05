@@ -71,7 +71,7 @@ MonoBehaviour:
     m_Value: 11.01
   gaussianMaxRadius:
     m_OverrideState: 1
-    m_Value: 1.06
+    m_Value: 0.678
   highQualitySampling:
     m_OverrideState: 0
     m_Value: 0

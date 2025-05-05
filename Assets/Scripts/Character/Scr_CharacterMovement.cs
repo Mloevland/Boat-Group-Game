@@ -29,6 +29,8 @@ public class Scr_CharacterMovement : MonoBehaviour
     private bool isGrounded = true;
     private bool isSliding = false;
     private Vector2 movementInput;
+    Vector3[] raycastOffsets = { Vector3.zero, Vector3.right, Vector3.forward, -Vector3.right, -Vector3.forward };
+
 
     //Sliding
     private Vector3 slidingVelocity;
@@ -55,9 +57,16 @@ public class Scr_CharacterMovement : MonoBehaviour
         {
             rb.AddForce(slidingVelocity * 10f, ForceMode.Acceleration);
 
-            if(slidingVelocity.magnitude < 0.01f)
+            if (rb.linearVelocity.magnitude > 0.8f)
+            {
+                Quaternion desiredRotation = Quaternion.Euler(0, Mathf.Atan2(rb.linearVelocity.x, rb.linearVelocity.z) * Mathf.Rad2Deg, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * 8f);
+            }
+
+            if (slidingVelocity.magnitude < 0.01f)
             {
                 
+
                 Debug.Log("Slide velocity below threshold " + slidingVelocity.magnitude);
                 SetSliding(false);
             }
@@ -95,6 +104,7 @@ public class Scr_CharacterMovement : MonoBehaviour
         }
         else
         {
+          
             DoMovement();
         }
 
@@ -153,15 +163,32 @@ public class Scr_CharacterMovement : MonoBehaviour
     private void CheckGrounded()
     {
         RaycastHit hit;
-        if (Physics.SphereCast(positionReferencePoint.position,0.8f * transform.localScale.y, Vector3.down, out hit, 0.22f * transform.localScale.y, groundLayer))
-        {
-            Debug.DrawLine(transform.position, hit.point, Color.green);
+        Vector3 groundNormal = Vector3.zero;
+        bool groundDetected = false;
 
-            Debug.Log(Vector3.Dot(hit.normal, Vector3.up));
-            if(Vector3.Dot(hit.normal, Vector3.up) < 0.8f)
+        for (int i = 0; i < raycastOffsets.Length; i++)
+        {
+            if (Physics.Raycast(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, Vector3.down, out hit, 1.05f * transform.localScale.y, groundLayer))
+            {
+                Debug.DrawLine(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, hit.point, Color.green);
+                groundNormal += hit.normal;
+                groundDetected = true; 
+            }
+            else
+            {
+                Debug.DrawLine(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y + Vector3.down * 1.05f * transform.localScale.y, Color.red);
+            }
+        }
+        groundNormal.Normalize();
+
+        if (groundDetected)
+        {
+
+            Debug.Log(Vector3.Dot(groundNormal, Vector3.up));
+            if(Vector3.Dot(groundNormal, Vector3.up) < 0.8f)
             {
                 
-                slidingVelocity = Vector3.ProjectOnPlane(hit.normal, Vector3.up) * 0.5f;
+                slidingVelocity = Vector3.ProjectOnPlane(groundNormal, Vector3.up) * 0.5f;
                 Debug.Log("Start Slide with velocity " + slidingVelocity + " and a magnitude of " + slidingVelocity.magnitude);
                 SetSliding(true);
             }

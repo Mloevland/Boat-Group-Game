@@ -11353,7 +11353,7 @@ Transform:
   m_GameObject: {fileID: 2014860858}
   serializedVersion: 2
   m_LocalRotation: {x: -0.07735991, y: 0.89636964, z: -0.17303593, w: -0.40074378}
-  m_LocalPosition: {x: 10.78, y: 3.61, z: 7.79}
+  m_LocalPosition: {x: 10.78, y: 3.4099998, z: 7.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12289,6 +12289,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1014812889}
     m_Modifications:
+    - target: {fileID: 4242672570224898676, guid: b37468ca0ab689846b53fb755140b75d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 7eba1f7911eeffa4386a255cb26cee73, type: 2}
     - target: {fileID: 4812904353001049738, guid: b37468ca0ab689846b53fb755140b75d, type: 3}
       propertyPath: m_Name
       value: Physics Player
@@ -12334,8 +12338,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6575246076009479531, guid: b37468ca0ab689846b53fb755140b75d, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575246076009479531, guid: b37468ca0ab689846b53fb755140b75d, type: 3}
       propertyPath: m_Interpolate
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6575246076009479531, guid: b37468ca0ab689846b53fb755140b75d, type: 3}
       propertyPath: m_LinearDamping
@@ -12351,7 +12359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7266615299040002397, guid: b37468ca0ab689846b53fb755140b75d, type: 3}
       propertyPath: moveSpeed
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
