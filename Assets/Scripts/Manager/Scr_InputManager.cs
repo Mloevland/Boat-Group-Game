@@ -10,6 +10,7 @@ public class Scr_InputManager : MonoBehaviour
     public Vector2Event moveEvent;
     private Vector2 moveDir;
     public BoolEvent jumpEvent;
+    public BoolEvent interactEvent;
 
     private Vector3 forwardTruth, rightTruth;
     private Vector3 currentForward, currentRight;
@@ -142,6 +143,17 @@ public class Scr_InputManager : MonoBehaviour
         }
     }
 
+    public void GetInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            interactEvent.Raise(true);
+        }
+        if (context.canceled)
+        {
+            interactEvent.Raise(false);
+        }
+    }
 
 
 }

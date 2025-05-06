@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 1175662539244270853}
   - component: {fileID: 4517423872816687763}
   - component: {fileID: 6992877096005548754}
+  - component: {fileID: 2729609919893848695}
   m_Layer: 0
   m_Name: InputListener
   m_TagString: Untagged
@@ -112,6 +113,34 @@ MonoBehaviour:
       - m_Target: {fileID: 7266615299040002397}
         m_TargetAssemblyTypeName: Scr_CharacterMovement, Character
         m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2729609919893848695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2924446196292385669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c26eb267b07ea47938568250f77855, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: ad3096992a59ae2478ad6da3f29830c2, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7266615299040002397}
+        m_TargetAssemblyTypeName: Scr_CharacterMovement, Character
+        m_MethodName: CheckForInteraction
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -476,13 +505,19 @@ MonoBehaviour:
   ani: {fileID: 2261127495971671626}
   rb: {fileID: 6575246076009479531}
   positionReferencePoint: {fileID: 4737788057786013397}
-  moveSpeed: 6
+  moveSpeed: 5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 776
+  climbableLayer:
+    serializedVersion: 2
+    m_Bits: 768
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 384
   acceleration: 10
   deccelleration: 15
-  velPower: 2
+  velPower: 1
   jumpForce: 3.5
 --- !u!205 &6529624913788165221
 LODGroup:
@@ -520,7 +555,7 @@ Rigidbody:
   m_GameObject: {fileID: 4812904353001049738}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0.1
+  m_LinearDamping: 0.5
   m_AngularDamping: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -535,9 +570,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!136 &4242672570224898676
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -545,7 +580,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4812904353001049738}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7eba1f7911eeffa4386a255cb26cee73, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

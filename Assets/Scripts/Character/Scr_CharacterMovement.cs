@@ -7,6 +7,8 @@ public class Scr_CharacterMovement : MonoBehaviour
     public Transform positionReferencePoint;
     public float moveSpeed;
     public LayerMask groundLayer;
+    public LayerMask climbableLayer;
+    public LayerMask interactableLayer;
 
     [Header("Movement Settings")]
     public float acceleration = 10f;
@@ -24,16 +26,22 @@ public class Scr_CharacterMovement : MonoBehaviour
     private Quaternion matchRotation;
     private float normalisedStartTime;
     private float normalisedEndTime;
+    private Rigidbody climbingRigidbody;
 
     //Movement Variables
     private bool isGrounded = true;
     private bool isSliding = false;
+    private Vector3 groundNormal;
     private Vector2 movementInput;
     Vector3[] raycastOffsets = { Vector3.zero, Vector3.right, Vector3.forward, -Vector3.right, -Vector3.forward };
 
 
     //Sliding
     private Vector3 slidingVelocity;
+
+    private SpringJoint draggingObject;
+    private Transform draggingTransform;
+    private bool isDragging = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -73,7 +81,6 @@ public class Scr_CharacterMovement : MonoBehaviour
             else
             {
                 return;
-
             }
 
         }
@@ -81,13 +88,19 @@ public class Scr_CharacterMovement : MonoBehaviour
         if (!isGrounded)
         {
             RaycastHit hit;
-            if(Physics.Raycast(positionReferencePoint.position, transform.forward, out hit, 0.6f * transform.localScale.y, groundLayer))
+            if(Physics.Raycast(positionReferencePoint.position, new Vector3(movementInput.x,0,movementInput.y), out hit, 0.6f * transform.localScale.y, climbableLayer))
             {
                 RaycastHit hit2;
 
                 if(Physics.Raycast(hit.point + (Vector3.up*2 - hit.normal*0.3f) * transform.localScale.y, Vector3.down, out hit2, 2f * transform.localScale.y, groundLayer))
                 {
-                    PlayOverrideAnimation("Climb",transform.position, new Vector3(hit.point.x,hit2.point.y,hit.point.z), 0.05f, 0.6f);
+                    PlayOverrideAnimation("Climb",transform.position, new Vector3(hit.point.x,hit2.point.y,hit.point.z),
+                        Quaternion.LookRotation(new Vector3(hit.point.x, transform.position.y, hit.point.z) - transform.position, Vector3.up), 0.05f, 0.6f);
+                    if(climbingRigidbody = hit.collider.GetComponent<Rigidbody>())
+                    {
+                        climbingRigidbody.isKinematic = true;
+                    }
+
                     Debug.DrawLine(hit.point + Vector3.up * 2 - hit.normal * 0.3f, hit2.point, Color.blue, 5);
                 }
                 else
@@ -98,14 +111,20 @@ public class Scr_CharacterMovement : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(positionReferencePoint.position, positionReferencePoint.position + transform.forward*0.6f, Color.red);
+                Debug.DrawLine(positionReferencePoint.position, positionReferencePoint.position + new Vector3(movementInput.x, 0, movementInput.y) * 0.6f, Color.red);
             }
             
         }
         else
         {
-          
+            RaycastHit hit;
+            if (Physics.Raycast(positionReferencePoint.position, new Vector3(movementInput.x, 0, movementInput.y), out hit, 0.6f * transform.localScale.y, groundLayer))
+            {
+
+            }
+
             DoMovement();
+            HandleRotation();
         }
 
     }
@@ -113,17 +132,17 @@ public class Scr_CharacterMovement : MonoBehaviour
     [ContextMenu("Test Animation")]
     public void TestOverrideAni()
     {
-        PlayOverrideAnimation("Climb",transform.position, transform.position + Vector3.up * 5, 0.0f, 0.5f);
+        PlayOverrideAnimation("Climb",transform.position, transform.position + Vector3.up * 5,Quaternion.identity, 0.0f, 0.5f);
     }
 
-    public void PlayOverrideAnimation(string animationName,Vector3 startPos, Vector3 matchPos, float normalizedStartTime, float normalizedEndTime)
+    public void PlayOverrideAnimation(string animationName,Vector3 startPos, Vector3 matchPos,Quaternion rotation, float normalizedStartTime, float normalizedEndTime)
     {
         ani.applyRootMotion = true;
         rb.isKinematic = true;
 
         matchPosition = matchPos;
         matchStartPosition = startPos;
-        matchRotation = Quaternion.identity;
+        matchRotation = rotation;
         normalisedStartTime = normalizedStartTime;
         normalisedEndTime = normalizedEndTime;
 
@@ -150,6 +169,7 @@ public class Scr_CharacterMovement : MonoBehaviour
         //ani.MatchTarget(matchPosition, matchRotation, target, new MatchTargetWeightMask(Vector3.one,0), normalisedStartTime, normalisedEndTime);
 
         transform.position = Vector3.Lerp(transform.position,Vector3.Lerp(matchStartPosition, matchPosition, remappedTime),Time.deltaTime * 12);
+        transform.rotation = Quaternion.Lerp(transform.rotation, matchRotation, Time.deltaTime * 12);
     }
 
     public void StopOverrideAnimation()
@@ -158,17 +178,61 @@ public class Scr_CharacterMovement : MonoBehaviour
         overrideMovement = false;
         rb.isKinematic = false;
 
+        if (climbingRigidbody)
+        {
+            climbingRigidbody.isKinematic = false;
+            climbingRigidbody = null;
+        }
+    }
+
+    public void CheckForInteraction(bool interact)
+    {
+        if (interact)
+        {
+            Collider[] hitInteractables = Physics.OverlapSphere(positionReferencePoint.position, 0.75f, interactableLayer);
+            if (hitInteractables.Length != 0)
+            {
+
+                draggingTransform = hitInteractables[0].transform;
+
+                RaycastHit hit;
+                Physics.Raycast(positionReferencePoint.position, hitInteractables[0].transform.position - positionReferencePoint.position, out hit, 1.05f, interactableLayer);
+
+                draggingObject = hitInteractables[0].gameObject.AddComponent<SpringJoint>();
+                draggingObject.anchor = hitInteractables[0].transform.InverseTransformPoint(hit.point);
+                draggingObject.connectedBody = rb;
+                draggingObject.minDistance = 0.05f;
+                draggingObject.maxDistance = 0.05f;
+                draggingObject.spring = 100f;
+                draggingObject.damper = 1;
+                draggingObject.enableCollision = true;
+
+                isDragging = true;
+                ani.SetLayerWeight(2, 1f);
+            }
+        }
+        else
+        {
+            if(draggingObject == null)
+                return;
+
+            draggingTransform = null;
+            Destroy(draggingObject);
+            isDragging = false;
+            ani.SetLayerWeight(2, 0f);
+        }
+        
     }
 
     private void CheckGrounded()
     {
         RaycastHit hit;
-        Vector3 groundNormal = Vector3.zero;
+        groundNormal = Vector3.zero;
         bool groundDetected = false;
 
         for (int i = 0; i < raycastOffsets.Length; i++)
         {
-            if (Physics.Raycast(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, Vector3.down, out hit, 1.05f * transform.localScale.y, groundLayer))
+            if (Physics.Raycast(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, Vector3.down, out hit, 1.07f * transform.localScale.y, groundLayer))
             {
                 Debug.DrawLine(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, hit.point, Color.green);
                 groundNormal += hit.normal;
@@ -278,11 +342,16 @@ public class Scr_CharacterMovement : MonoBehaviour
             ani.SetFloat("Speed", movementInput.magnitude);
             Vector2 movement = CalculateMovementForce(movementInput, moveSpeed);
             rb.AddForce(new Vector3(movement.x, 0, movement.y));
-            //transform.position = transform.position + new Vector3(direction.x,0,direction.y) * Time.deltaTime * moveSpeed;
-            if (movementInput != Vector2.zero)
+
+            if(movementInput.magnitude == 0)
             {
-                Quaternion desiredRotation = Quaternion.Euler(0, Mathf.Atan2(movementInput.x, movementInput.y) * Mathf.Rad2Deg, 0);
-                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * 8f);
+                if(Vector3.Dot(groundNormal, Vector3.up) < 0.95f)
+                    rb.linearVelocity = new Vector3(0, rb.linearVelocity.y * 0.8f, 0);
+            }
+
+            if (isDragging)
+            {
+                ani.SetFloat("DragDir", Vector3.Dot((draggingTransform.position - positionReferencePoint.position).normalized, new Vector3(movementInput.x, 0, movementInput.y).normalized));
             }
 
             CheckForObstacles();
@@ -290,12 +359,37 @@ public class Scr_CharacterMovement : MonoBehaviour
         else
         {
             rb.AddForce(new Vector3(movementInput.x, 0, movementInput.y));
+
+        }
+    }
+
+    private void HandleRotation()
+    {
+        if (isGrounded)
+        {
+            if (isDragging)
+            {
+                Quaternion desiredRotation = Quaternion.LookRotation(
+                    new Vector3(draggingTransform.position.x, positionReferencePoint.position.y, draggingTransform.position.z) - positionReferencePoint.position, Vector3.up);
+                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * 8f);
+                return;
+            }
+
+            if (movementInput != Vector2.zero)
+            {
+                Quaternion desiredRotation = Quaternion.Euler(0, Mathf.Atan2(movementInput.x, movementInput.y) * Mathf.Rad2Deg, 0);
+                transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * 8f);
+            }
+        }
+        else
+        {
+
+
             if (rb.linearVelocity.magnitude > 0.8f)
             {
                 Quaternion desiredRotation = Quaternion.Euler(0, Mathf.Atan2(rb.linearVelocity.x, rb.linearVelocity.z) * Mathf.Rad2Deg, 0);
                 transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotation, Time.deltaTime * 8f);
             }
-
         }
     }
 
