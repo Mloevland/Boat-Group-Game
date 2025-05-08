@@ -11,13 +11,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Ground
+  - Ground/Default
   - Water
   - UI
   - Critical
-  - 
-  - 
-  - 
+  - Interactable/Default
+  - Interactable/Platform
+  - Ground/Climbable
   - 
   - 
   - 

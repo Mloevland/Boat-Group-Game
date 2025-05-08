@@ -52,6 +52,7 @@ MonoBehaviour:
   cam: {fileID: 0}
   moveEvent: {fileID: 11400000, guid: 45c403d8adb5f7f4ba8dd1e5bad0accd, type: 2}
   jumpEvent: {fileID: 11400000, guid: 2f3c9b15a3aefe74cb84df7685f6cac9, type: 2}
+  interactEvent: {fileID: 11400000, guid: ad3096992a59ae2478ad6da3f29830c2, type: 2}
 --- !u!114 &761282221712985033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   criticalObjectTexture: {fileID: 8400000, guid: e66dedd49d887b2419593d85a20f0f5d, type: 2}
+  mainCam: {fileID: 0}
+  objectCam: {fileID: 0}
 --- !u!114 &470545457372900728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +110,19 @@ MonoBehaviour:
     m_ActionId: 351f2ccd-1f9f-44bf-9bec-d62ac5c5f408
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 756992668995210906}
+        m_TargetAssemblyTypeName: Scr_InputManager, Managers
+        m_MethodName: GetInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
     m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
