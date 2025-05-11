@@ -209,29 +209,33 @@ void MixFog_float (float3 Colour, float Fog, out float3 Out){
 	- Boolean Keyword, Global Multi-Compile "_FORWARD_PLUS" (2022.2+)
 */
 void AdditionalLights_float(float3 SpecColor, float Smoothness, float3 WorldPosition, float3 WorldNormal, float3 WorldView, half4 Shadowmask,
-							out float3 Diffuse, out float3 Specular) {
+	out float3 Color, out float Attenuation, out float3 Specular) {
 	float3 diffuseColor = 0;
+	float3 accumulatedColor = 0;
+	float accumulatedAttenuation = 0;
 	float3 specularColor = 0;
 #ifndef SHADERGRAPH_PREVIEW
 	Smoothness = exp2(10 * Smoothness + 1);
 	uint pixelLightCount = GetAdditionalLightsCount();
 	uint meshRenderingLayers = GetMeshRenderingLayer();
 
-	#if USE_FORWARD_PLUS
+#if USE_FORWARD_PLUS
 	for (uint lightIndex = 0; lightIndex < min(URP_FP_DIRECTIONAL_LIGHTS_COUNT, MAX_VISIBLE_LIGHTS); lightIndex++) {
 		FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
-		Light light = GetAdditionalLight(lightIndex, WorldPosition, Shadowmask);
-	#ifdef _LIGHT_LAYERS
+			Light light = GetAdditionalLight(lightIndex, WorldPosition, Shadowmask);
+#ifdef _LIGHT_LAYERS
 		if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
-	#endif
+#endif
 		{
 			// Blinn-Phong
 			float3 attenuatedLightColor = light.color * (light.distanceAttenuation * light.shadowAttenuation);
+			accumulatedColor += light.color;
+			accumulatedAttenuation += light.distanceAttenuation * light.shadowAttenuation;
 			diffuseColor += LightingLambert(attenuatedLightColor, light.direction, WorldNormal);
 			specularColor += LightingSpecular(attenuatedLightColor, light.direction, WorldNormal, WorldView, float4(SpecColor, 0), Smoothness);
 		}
 	}
-	#endif
+#endif
 
 	// For Foward+ the LIGHT_LOOP_BEGIN macro will use inputData.normalizedScreenSpaceUV, inputData.positionWS, so create that:
 	InputData inputData = (InputData)0;
@@ -241,26 +245,28 @@ void AdditionalLights_float(float3 SpecColor, float Smoothness, float3 WorldPosi
 
 	LIGHT_LOOP_BEGIN(pixelLightCount)
 		Light light = GetAdditionalLight(lightIndex, WorldPosition, Shadowmask);
-	#ifdef _LIGHT_LAYERS
-		if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
-	#endif
-		{
-			// Blinn-Phong
-			float3 attenuatedLightColor = light.color * (light.distanceAttenuation * light.shadowAttenuation);
-			diffuseColor += LightingLambert(attenuatedLightColor, light.direction, WorldNormal);
-			specularColor += LightingSpecular(attenuatedLightColor, light.direction, WorldNormal, WorldView, float4(SpecColor, 0), Smoothness);
-		}
+#ifdef _LIGHT_LAYERS
+	if (IsMatchingLightLayer(light.layerMask, meshRenderingLayers))
+#endif
+	{
+		// Blinn-Phong
+		float3 attenuatedLightColor = light.color * (light.distanceAttenuation * light.shadowAttenuation);
+		accumulatedColor += light.color * round(light.distanceAttenuation);
+		accumulatedAttenuation += light.distanceAttenuation * light.shadowAttenuation;
+		diffuseColor += LightingLambert(attenuatedLightColor, light.direction, WorldNormal);
+		specularColor += LightingSpecular(attenuatedLightColor, light.direction, WorldNormal, WorldView, float4(SpecColor, 0), Smoothness);
+	}
 	LIGHT_LOOP_END
 #endif
 
-	Diffuse = diffuseColor;
+		Color = accumulatedColor;
+	Attenuation = accumulatedAttenuation;
 	Specular = specularColor;
 }
-
 // For backwards compatibility (before Shadowmask was introduced)
 void AdditionalLights_float(float3 SpecColor, float Smoothness, float3 WorldPosition, float3 WorldNormal, float3 WorldView, 
-							out float3 Diffuse, out float3 Specular) {
-AdditionalLights_float(SpecColor, Smoothness, WorldPosition, WorldNormal, WorldView, half4(1,1,1,1), Diffuse, Specular);
+							out float3 Color,out float Attenuation, out float3 Specular) {
+AdditionalLights_float(SpecColor, Smoothness, WorldPosition, WorldNormal, WorldView, half4(1,1,1,1), Color,Attenuation, Specular);
 }
 
 //------------------------------------------------------------------------------------------------------
