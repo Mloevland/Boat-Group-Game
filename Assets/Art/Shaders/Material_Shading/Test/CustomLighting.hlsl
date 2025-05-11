@@ -251,7 +251,7 @@ void AdditionalLights_float(float3 SpecColor, float Smoothness, float3 WorldPosi
 	{
 		// Blinn-Phong
 		float3 attenuatedLightColor = light.color * (light.distanceAttenuation * light.shadowAttenuation);
-		accumulatedColor += light.color * round(light.distanceAttenuation);
+		accumulatedColor += light.color * light.distanceAttenuation;
 		accumulatedAttenuation += light.distanceAttenuation * light.shadowAttenuation;
 		diffuseColor += LightingLambert(attenuatedLightColor, light.direction, WorldNormal);
 		specularColor += LightingSpecular(attenuatedLightColor, light.direction, WorldNormal, WorldView, float4(SpecColor, 0), Smoothness);
