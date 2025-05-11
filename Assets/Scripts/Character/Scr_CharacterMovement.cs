@@ -248,7 +248,7 @@ public class Scr_CharacterMovement : MonoBehaviour
         if (groundDetected)
         {
 
-            Debug.Log(Vector3.Dot(groundNormal, Vector3.up));
+            //Debug.Log(Vector3.Dot(groundNormal, Vector3.up));
             if(Vector3.Dot(groundNormal, Vector3.up) < 0.8f)
             {
                 
@@ -431,5 +431,16 @@ public class Scr_CharacterMovement : MonoBehaviour
         return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        Rigidbody collisionBody;
+        if(collisionBody = collision.gameObject.GetComponent<Rigidbody>())
+        {
+            Debug.Log("Collision of force: " + collision.gameObject.GetComponent<Rigidbody>().linearVelocity.magnitude * collision.gameObject.GetComponent<Rigidbody>().mass);
+        }
+        
+
+
+    }
 
 }
