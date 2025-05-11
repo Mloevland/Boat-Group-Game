@@ -82,6 +82,10 @@ Material:
     - _FresnelSize: 0.2
     - _FresnelStrength: 0.6
     - _Glossiness: 0
+    - _Height: 0
+    - _HeightStrength: 0.807
+    - _Height_Cutoff: -0.11
+    - _Height_Falloff: 0.02
     - _HueShiftAmount: 51.3
     - _ProjectionScale: 0.15
     - _ProjectionScale_1: 0.54
@@ -101,15 +105,16 @@ Material:
     - _Texture_Tiling: 1
     - _Tiling: 1
     - _UseFresnel: 1
+    - _UseHeight: 1
     - _UseSpecular: 1
-    - _UseWorldPos: 0
+    - _UseWorldPos: 1
     m_Colors:
     - _AmbientColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
     - _Color: {r: 1, g: 0.5955362, b: 0, a: 1}
     - _Color_1: {r: 0.8862745, g: 0.72410077, b: 0, a: 1}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _Shadow_HSV: {r: -20, g: 1.4, b: 1, a: 0}
-    - _Shadow_Strenght: {r: 1.14, g: 0.35, b: 0, a: 0}
+    - _Shadow_Strenght: {r: 0.66, g: 0.35, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4369334307526757848
