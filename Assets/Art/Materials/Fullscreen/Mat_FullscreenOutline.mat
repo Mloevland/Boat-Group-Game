@@ -106,7 +106,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _NoiseScale: 30.38
-    - _Normal_Threshold: 0.67
+    - _Normal_Threshold: 0.83
     - _OcclusionStrength: 1
     - _OutlineSmoothness: 0.333
     - _Parallax: 0.005
