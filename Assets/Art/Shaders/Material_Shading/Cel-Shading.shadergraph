@@ -699,6 +699,9 @@
         },
         {
             "m_Id": "3fde423bb1e043129945d4e1724c7cb3"
+        },
+        {
+            "m_Id": "a6c3b20c12764980a54a7c8b49671288"
         }
     ],
     "m_GroupDatas": [
@@ -2200,9 +2203,9 @@
             },
             "m_InputSlot": {
                 "m_Node": {
-                    "m_Id": "44b358bcaa334194b65a6518dc08d114"
+                    "m_Id": "a6c3b20c12764980a54a7c8b49671288"
                 },
-                "m_SlotId": 2
+                "m_SlotId": 0
             }
         },
         {
@@ -2721,6 +2724,20 @@
                     "m_Id": "6823606a441f4ffdbf00a9fa48759145"
                 },
                 "m_SlotId": 0
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "a6c3b20c12764980a54a7c8b49671288"
+                },
+                "m_SlotId": 2
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "44b358bcaa334194b65a6518dc08d114"
+                },
+                "m_SlotId": 2
             }
         },
         {
@@ -4158,8 +4175,8 @@
     "m_ObjectId": "070b7887dbd74d1bb2d9a06be3f29558",
     "m_Title": "Clamp Main Light Fresnel",
     "m_Position": {
-        "x": -962.0,
-        "y": 6050.0
+        "x": -962.0000610351563,
+        "y": 6050.00048828125
     }
 }
 
@@ -5202,10 +5219,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -3470.0,
-            "y": 5187.0,
-            "width": 208.0,
-            "height": 302.0
+            "x": -3479.0,
+            "y": 5190.0,
+            "width": 130.0,
+            "height": 118.0
         }
     },
     "m_Slots": [
@@ -7885,6 +7902,30 @@
 {
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
+    "m_ObjectId": "39b2a29ea96140dcb91789dcb3cd25fe",
+    "m_Id": 0,
+    "m_DisplayName": "A",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "A",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "3a04038b2b3f4e659938827bd92e548a",
     "m_Id": 1,
     "m_DisplayName": "",
@@ -8901,8 +8942,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -3741.99951171875,
-            "y": 5308.0,
+            "x": -3742.00048828125,
+            "y": 5356.0,
             "width": 208.0,
             "height": 326.0
         }
@@ -10846,7 +10887,7 @@
     "m_ShaderOutputName": "Edge1",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 0.0,
+        "x": 0.5,
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
@@ -12738,8 +12779,8 @@
     "m_ObjectId": "6d92269251b84a1687ff62c38dbc233e",
     "m_Title": "Shadow HSV",
     "m_Position": {
-        "x": -2536.0,
-        "y": -1048.00048828125
+        "x": -2536.000244140625,
+        "y": -1048.0
     }
 }
 
@@ -14169,8 +14210,8 @@
     "m_ObjectId": "7f1ddfe9a7e3407b8d4305391ce5fddc",
     "m_Title": "Clamp Main Light Specular",
     "m_Position": {
-        "x": -835.999755859375,
-        "y": 1912.000244140625
+        "x": -836.0,
+        "y": 1912.0
     }
 }
 
@@ -15865,8 +15906,8 @@
     "m_ObjectId": "93dceb1b94e245c1805569fd2d761046",
     "m_Title": "Shadow",
     "m_Position": {
-        "x": -3272.0,
-        "y": -1849.00048828125
+        "x": -3272.000244140625,
+        "y": -1849.0
     }
 }
 
@@ -17294,6 +17335,45 @@
     "useTexelSize": true,
     "m_Modifiable": true,
     "m_DefaultType": 0
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.MinimumNode",
+    "m_ObjectId": "a6c3b20c12764980a54a7c8b49671288",
+    "m_Group": {
+        "m_Id": "f8eacaa593ad442fa0c1bd0cef5460dd"
+    },
+    "m_Name": "Minimum",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -3978.0,
+            "y": 5388.0,
+            "width": 126.0,
+            "height": 118.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "39b2a29ea96140dcb91789dcb3cd25fe"
+        },
+        {
+            "m_Id": "d29d5e7745464254bea7fa3528ffb1be"
+        },
+        {
+            "m_Id": "f8e5b81c356b4524a062238fd79b3a75"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": false,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    }
 }
 
 {
@@ -20361,8 +20441,8 @@
     "m_ObjectId": "c8e0575b806e45c6a9756000dbfafbfe",
     "m_Title": "Height Algae",
     "m_Position": {
-        "x": -2689.0,
-        "y": 8110.00048828125
+        "x": -2689.000244140625,
+        "y": 8110.0
     }
 }
 
@@ -20486,7 +20566,7 @@
     "m_ObjectId": "ca881278ff3c4751889f22a69167a633",
     "m_Title": "Calculate Main Light Specular",
     "m_Position": {
-        "x": -3445.0,
+        "x": -3445.000244140625,
         "y": 1664.0
     }
 }
@@ -21284,6 +21364,30 @@
         "Y",
         "Z"
     ]
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
+    "m_ObjectId": "d29d5e7745464254bea7fa3528ffb1be",
+    "m_Id": 1,
+    "m_DisplayName": "B",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "B",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0,
+        "w": 1.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    }
 }
 
 {
@@ -22320,8 +22424,8 @@
     "m_ObjectId": "de6d95f7a2b84b68adb1978d24f7a984",
     "m_Title": "Shadow Outline",
     "m_Position": {
-        "x": -1279.999755859375,
-        "y": -2214.00048828125
+        "x": -1280.0003662109375,
+        "y": -2214.000732421875
     }
 }
 
@@ -22544,7 +22648,7 @@
     "m_ShaderOutputName": "Edge2",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 0.5299999713897705,
+        "x": 1.0,
         "y": 1.0,
         "z": 1.0,
         "w": 1.0
@@ -22861,7 +22965,7 @@
     "m_Title": "Calculate Main Light Fresnel",
     "m_Position": {
         "x": -2435.0,
-        "y": 6098.0
+        "y": 6098.00048828125
     }
 }
 
@@ -24282,6 +24386,30 @@
         "e31": 0.0,
         "e32": 0.0,
         "e33": 1.0
+    }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
+    "m_ObjectId": "f8e5b81c356b4524a062238fd79b3a75",
+    "m_Id": 2,
+    "m_DisplayName": "Out",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
     }
 }
 

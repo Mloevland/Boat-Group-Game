@@ -17,10 +17,12 @@ public class Scr_CameraManager : MonoBehaviour
 
     public void UpdateCamera(GameObject camera)
     {
-        camera.SetActive(true);
+        
 
         if(currentCamera != null )
             currentCamera.SetActive(false);
+
+        camera.SetActive(true);
 
         currentCamera = camera;
 
