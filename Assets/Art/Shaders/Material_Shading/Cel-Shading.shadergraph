@@ -4175,8 +4175,8 @@
     "m_ObjectId": "070b7887dbd74d1bb2d9a06be3f29558",
     "m_Title": "Clamp Main Light Fresnel",
     "m_Position": {
-        "x": -962.0000610351563,
-        "y": 6050.00048828125
+        "x": -962.0,
+        "y": 6050.0
     }
 }
 
@@ -5187,7 +5187,7 @@
     "m_ObjectId": "17d05add0b064f8a9e30fb8822b3bce4",
     "m_Title": "Texture_W_Variations",
     "m_Position": {
-        "x": -3656.000244140625,
+        "x": -3656.0,
         "y": 77.0
     }
 }
@@ -12779,7 +12779,7 @@
     "m_ObjectId": "6d92269251b84a1687ff62c38dbc233e",
     "m_Title": "Shadow HSV",
     "m_Position": {
-        "x": -2536.000244140625,
+        "x": -2536.0,
         "y": -1048.0
     }
 }
@@ -15906,7 +15906,7 @@
     "m_ObjectId": "93dceb1b94e245c1805569fd2d761046",
     "m_Title": "Shadow",
     "m_Position": {
-        "x": -3272.000244140625,
+        "x": -3272.0,
         "y": -1849.0
     }
 }
@@ -20441,7 +20441,7 @@
     "m_ObjectId": "c8e0575b806e45c6a9756000dbfafbfe",
     "m_Title": "Height Algae",
     "m_Position": {
-        "x": -2689.000244140625,
+        "x": -2689.0,
         "y": 8110.0
     }
 }
@@ -20566,7 +20566,7 @@
     "m_ObjectId": "ca881278ff3c4751889f22a69167a633",
     "m_Title": "Calculate Main Light Specular",
     "m_Position": {
-        "x": -3445.000244140625,
+        "x": -3445.0,
         "y": 1664.0
     }
 }
@@ -22424,8 +22424,8 @@
     "m_ObjectId": "de6d95f7a2b84b68adb1978d24f7a984",
     "m_Title": "Shadow Outline",
     "m_Position": {
-        "x": -1280.0003662109375,
-        "y": -2214.000732421875
+        "x": -1280.0,
+        "y": -2214.0
     }
 }
 
@@ -22965,7 +22965,7 @@
     "m_Title": "Calculate Main Light Fresnel",
     "m_Position": {
         "x": -2435.0,
-        "y": 6098.00048828125
+        "y": 6098.0
     }
 }
 
@@ -24419,8 +24419,8 @@
     "m_ObjectId": "f8eacaa593ad442fa0c1bd0cef5460dd",
     "m_Title": "MainLight",
     "m_Position": {
-        "x": -5603.00048828125,
-        "y": 4474.00048828125
+        "x": -5603.0,
+        "y": 4474.0
     }
 }
 
