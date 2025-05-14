@@ -161,7 +161,7 @@ Material:
     - _UseFresnel: 1
     - _UseHeight: 0
     - _UseSpecular: 1
-    - _UseWorldPos: 1
+    - _UseWorldPos: 0
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1

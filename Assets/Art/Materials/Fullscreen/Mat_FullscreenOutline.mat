@@ -108,14 +108,14 @@ Material:
     - _HeightMask: 1.73
     - _Metallic: 0
     - _NoiseScale: 30.38
-    - _NormaOutlineStrenght: 0.35
-    - _Normal_Threshold: 0.83
+    - _NormaOutlineStrenght: 0.199
+    - _Normal_Threshold: 1.2
     - _OcclusionStrength: 1
     - _OutlineSmoothness: 0.333
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _SampleWidth: 1.5
+    - _SampleWidth: 1
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

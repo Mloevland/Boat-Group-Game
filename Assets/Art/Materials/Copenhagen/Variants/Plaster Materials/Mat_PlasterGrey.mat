@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_PlasterWhite
+  m_Name: Mat_PlasterGrey
   m_Shader: {fileID: -6465566751694194690, guid: 72010249813e131459d6b8cf0cab5a80, type: 3}
   m_Parent: {fileID: 2100000, guid: 5268981cdfc1a6945aa96ded2f07feda, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -38,8 +38,9 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _UseFresnel: 0
     m_Colors:
-    - _Color: {r: 0.94509804, g: 0.94168234, b: 0.9019608, a: 1}
+    - _Color: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
