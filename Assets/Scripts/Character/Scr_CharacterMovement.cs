@@ -28,6 +28,8 @@ public class Scr_CharacterMovement : MonoBehaviour
     private float normalisedEndTime;
     private Rigidbody climbingRigidbody;
 
+    private Vector2 limitMovementDirection = Vector2.one;
+
     //Movement Variables
     private bool isGrounded = true;
     private bool isSliding = false;
@@ -292,6 +294,12 @@ public class Scr_CharacterMovement : MonoBehaviour
         }
     }
 
+    public void OverrideMovementLimit(Vector2 limit)
+    {
+        limitMovementDirection = limit;
+    }
+
+
     private void HandleJumpBuffers()
     {
         if (bufferJumpReset)
@@ -323,7 +331,31 @@ public class Scr_CharacterMovement : MonoBehaviour
     public void MoveCharacter(Vector2 direction)
     {
 
-        movementInput = Vector2.ClampMagnitude(direction, 1); 
+        movementInput = Vector2.ClampMagnitude(direction, 1);
+
+        if(limitMovementDirection != Vector2.one)
+        {
+            Vector3 overrideForward = Vector3.Cross(new Vector3(limitMovementDirection.x, 0, limitMovementDirection.y), Vector3.up);
+
+            
+            Vector2 rightMovement = limitMovementDirection * Vector2.Dot(direction, limitMovementDirection);
+
+            movementInput = rightMovement;
+        }
+
+
+
+    }
+
+    public void RespawnPlayer(GameObject respawnPoint)
+    {
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
+        rb.position = respawnPoint.transform.position;
+        rb.transform.position = respawnPoint.transform.position;
+        rb.transform.rotation = respawnPoint.transform.rotation;
+        rb.isKinematic = false;
     }
 
     private void DoMovement()
@@ -340,6 +372,10 @@ public class Scr_CharacterMovement : MonoBehaviour
         {
 
             ani.SetFloat("Speed", movementInput.magnitude);
+
+            //if(limitMovementDirection != Vector2.one)
+                //movementInput *= Mathf.Abs(Vector2.Dot(movementInput, limitMovementDirection));
+
             Vector2 movement = CalculateMovementForce(movementInput, moveSpeed);
             rb.AddForce(new Vector3(movement.x, 0, movement.y));
 
