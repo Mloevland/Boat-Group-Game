@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4517423872816687763}
   - component: {fileID: 6992877096005548754}
   - component: {fileID: 2729609919893848695}
+  - component: {fileID: 2868404080287663881}
   m_Layer: 0
   m_Name: InputListener
   m_TagString: Untagged
@@ -141,6 +142,34 @@ MonoBehaviour:
       - m_Target: {fileID: 7266615299040002397}
         m_TargetAssemblyTypeName: Scr_CharacterMovement, Character
         m_MethodName: CheckForInteraction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2868404080287663881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2924446196292385669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ae5f4dfb061c245835b73a31eb829d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: f387a716836a28941b4f82c4d5a8a208, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7266615299040002397}
+        m_TargetAssemblyTypeName: Scr_CharacterMovement, Character
+        m_MethodName: OverrideMovementLimit
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
