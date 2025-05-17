@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Scr_CharacterMovement : MonoBehaviour
@@ -28,7 +29,9 @@ public class Scr_CharacterMovement : MonoBehaviour
     private float normalisedEndTime;
     private Rigidbody climbingRigidbody;
 
-    private Vector2 limitMovementDirection = Vector2.zero;
+    private List<Vector2> limitMovementList;
+    private Vector2 limitMovementDirection;
+    
 
     //Movement Variables
     private bool isGrounded = true;
@@ -48,7 +51,7 @@ public class Scr_CharacterMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        limitMovementList = new List<Vector2>();
     }
 
     void FixedUpdate()
@@ -297,10 +300,41 @@ public class Scr_CharacterMovement : MonoBehaviour
     public void OverrideMovementLimit(Vector2 limit)
     {
         Debug.Log(limit);
-        limitMovementDirection = limit;
+        //limitMovementDirection = limit;
     }
 
+    public void AddMovementLimit(Vector2 limit)
+    {
+        limitMovementList.Add(limit);
+        CalculateMovementLimit();
+    }
 
+    public void RemoveMovementLimit(Vector2 limit)
+    {
+        if(limitMovementList.Contains(limit))
+            limitMovementList.Remove(limit);
+
+        CalculateMovementLimit();
+    }
+
+    private void CalculateMovementLimit()
+    {
+        if (limitMovementList.Count == 0)
+        {
+            limitMovementDirection = Vector2.zero;
+            return;
+        }
+        Vector2 tempDirection = Vector2.zero;
+        float tempMagnitude = 0f;
+        for (int i = 0; i < limitMovementList.Count; i++)
+        {
+            tempDirection += limitMovementList[i];
+            tempMagnitude += limitMovementList[i].magnitude;
+        }
+        tempDirection.Normalize();
+        tempMagnitude /= limitMovementList.Count;
+        limitMovementDirection = tempDirection * tempMagnitude;
+    }
     private void HandleJumpBuffers()
     {
         if (bufferJumpReset)

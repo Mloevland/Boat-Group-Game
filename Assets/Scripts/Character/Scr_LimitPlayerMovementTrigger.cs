@@ -1,4 +1,4 @@
-using MA.Events;
+
 using UnityEngine;
 
 public class Scr_LimitPlayerMovementTrigger : MonoBehaviour
@@ -6,11 +6,30 @@ public class Scr_LimitPlayerMovementTrigger : MonoBehaviour
     [Range(0,1)]
     public float strenght = 1;
     public float centeringForce = 10;
-    public Vector2Event limitMovementEvent;
+    //public Vector2Event limitMovementEvent;
+
+    private Vector2 myLimit;
+
+    [Range(-90,90)]
+    public float rotateDirection = 0;
+
+    private void Start()
+    {
+        Vector3 rightDir = Quaternion.AngleAxis(rotateDirection, Vector3.up) * transform.right;
+        //Debug.Log(rightDir);
+        rightDir.y = 0;
+        rightDir.Normalize();
+        //Debug.Log(rightDir);
+        rightDir *= strenght;
+        //Debug.Log(rightDir);
+
+        myLimit = new Vector2(rightDir.x, rightDir.z);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
+            /*
             Vector3 rightDir = transform.right;
             Debug.Log(rightDir);
             rightDir.y = 0;
@@ -18,7 +37,9 @@ public class Scr_LimitPlayerMovementTrigger : MonoBehaviour
             Debug.Log(rightDir);
             rightDir *= strenght;
             Debug.Log(rightDir);
-            limitMovementEvent.Raise(new Vector2(rightDir.x, rightDir.z));
+            */
+            
+            other.GetComponent<Scr_CharacterMovement>().AddMovementLimit(myLimit);
         }
     }
 
@@ -35,19 +56,23 @@ public class Scr_LimitPlayerMovementTrigger : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            limitMovementEvent.Raise(Vector2.zero);
+            other.GetComponent<Scr_CharacterMovement>().RemoveMovementLimit(myLimit);
         }
     }
 
 #if UNITY_EDITOR
     void OnDrawGizmos()
     {
+
+        Vector3 rightDir = Quaternion.AngleAxis(rotateDirection, Vector3.up) * transform.right;
+
+
         Gizmos.color = new Color(0.4f - strenght * 0.4f, 0.75f, 0f + strenght * 0.25f, 1f);
-        Gizmos.DrawLine(transform.position - transform.right * 0.3f, transform.position + transform.right * 0.3f);
-        Gizmos.DrawLine(transform.position - transform.right * 0.3f, transform.position - transform.right * 0.15f + transform.up * 0.15f);
-        Gizmos.DrawLine(transform.position - transform.right * 0.3f, transform.position - transform.right * 0.15f - transform.up * 0.15f);
-        Gizmos.DrawLine(transform.position + transform.right * 0.3f, transform.position + transform.right * 0.15f + transform.up * 0.15f);
-        Gizmos.DrawLine(transform.position + transform.right * 0.3f, transform.position + transform.right * 0.15f - transform.up * 0.15f);
+        Gizmos.DrawLine(transform.position - rightDir * 0.3f, transform.position + rightDir * 0.3f);
+        Gizmos.DrawLine(transform.position - rightDir * 0.3f, transform.position - rightDir * 0.15f + transform.up * 0.15f);
+        Gizmos.DrawLine(transform.position - rightDir * 0.3f, transform.position - rightDir * 0.15f - transform.up * 0.15f);
+        Gizmos.DrawLine(transform.position + rightDir * 0.3f, transform.position + rightDir * 0.15f + transform.up * 0.15f);
+        Gizmos.DrawLine(transform.position + rightDir * 0.3f, transform.position + rightDir * 0.15f - transform.up * 0.15f);
 
         // Convert the local coordinate values into world
         // coordinates for the matrix transformation.
