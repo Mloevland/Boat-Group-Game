@@ -28,7 +28,7 @@ public class Scr_CharacterMovement : MonoBehaviour
     private float normalisedEndTime;
     private Rigidbody climbingRigidbody;
 
-    private Vector2 limitMovementDirection = Vector2.one;
+    private Vector2 limitMovementDirection = Vector2.zero;
 
     //Movement Variables
     private bool isGrounded = true;
@@ -296,6 +296,7 @@ public class Scr_CharacterMovement : MonoBehaviour
 
     public void OverrideMovementLimit(Vector2 limit)
     {
+        Debug.Log(limit);
         limitMovementDirection = limit;
     }
 
@@ -333,14 +334,27 @@ public class Scr_CharacterMovement : MonoBehaviour
 
         movementInput = Vector2.ClampMagnitude(direction, 1);
 
-        if(limitMovementDirection != Vector2.one)
+        if(limitMovementDirection != Vector2.zero)
         {
-            Vector3 overrideForward = Vector3.Cross(new Vector3(limitMovementDirection.x, 0, limitMovementDirection.y), Vector3.up);
+            Vector2 limitNorm = limitMovementDirection.normalized;
+            float limitMag = limitMovementDirection.magnitude * -1 +1;
+            
+
+            Vector3 overrideForward = new Vector2(limitNorm.y, -limitNorm.x);
 
             
-            Vector2 rightMovement = limitMovementDirection * Vector2.Dot(direction, limitMovementDirection);
+            Vector2 rightMovement = limitNorm * Vector2.Dot(direction, limitNorm);
+            Vector2 forwardMovement = overrideForward * Vector2.Dot(direction, overrideForward);
 
-            movementInput = rightMovement;
+            float playerCompliance = Mathf.Abs(Vector2.Dot(direction, rightMovement)) * -1+1;
+            //Debug.Log(playerCompliance);
+
+            movementInput = (rightMovement + (forwardMovement*playerCompliance)*limitMag);
+
+            if (limitMag != 1)
+            {
+                movementInput.Normalize();
+            }
         }
 
 

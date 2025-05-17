@@ -104,14 +104,14 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HeightLineStrenght: 0.3
+    - _HeightLineStrenght: 0.03
     - _HeightMask: 1.73
     - _Metallic: 0
     - _NoiseScale: 30.38
-    - _NormaOutlineStrenght: 0.199
-    - _Normal_Threshold: 1.2
+    - _NormaOutlineStrenght: 0.08
+    - _Normal_Threshold: 1.35
     - _OcclusionStrength: 1
-    - _OutlineSmoothness: 0.333
+    - _OutlineSmoothness: 0.061
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
