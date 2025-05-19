@@ -92,6 +92,9 @@ public class Scr_CharacterMovement : MonoBehaviour
 
         if (!isGrounded)
         {
+
+            rb.AddForce(Vector3.down * 3f);
+
             RaycastHit hit;
             if(Physics.Raycast(positionReferencePoint.position, new Vector3(movementInput.x,0,movementInput.y), out hit, 0.6f * transform.localScale.y, climbableLayer))
             {
@@ -385,10 +388,19 @@ public class Scr_CharacterMovement : MonoBehaviour
 
             movementInput = (rightMovement + (forwardMovement*playerCompliance)*limitMag);
 
-            if (limitMag != 1)
+            Debug.Log(limitMag);
+            if (limitMag > 0.05f)
             {
                 movementInput.Normalize();
+                movementInput *= direction.magnitude;
+
             }
+            else if(playerCompliance > 0.8f)
+            {
+                movementInput = Vector2.zero;
+            }
+
+            
         }
 
 
@@ -425,7 +437,8 @@ public class Scr_CharacterMovement : MonoBehaviour
                 //movementInput *= Mathf.Abs(Vector2.Dot(movementInput, limitMovementDirection));
 
             Vector2 movement = CalculateMovementForce(movementInput, moveSpeed);
-            rb.AddForce(new Vector3(movement.x, 0, movement.y));
+            
+            rb.AddForce(Vector3.ProjectOnPlane(new Vector3(movement.x, 0, movement.y), groundNormal));
 
             if(movementInput.magnitude == 0)
             {
@@ -490,7 +503,7 @@ public class Scr_CharacterMovement : MonoBehaviour
         if(!value)
             return;
 
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        rb.AddForce(Vector3.up * jumpForce + new Vector3(movementInput.x,0,movementInput.y) * 1, ForceMode.Impulse);
         ani.SetTrigger("Jump");
         jumpResetTimer = jumpResetBuffer;
         bufferJumpReset = true;

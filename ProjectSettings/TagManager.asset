@@ -18,9 +18,9 @@ TagManager:
   - Interactable/Default
   - Interactable/Platform
   - Ground/Climbable
-  - 
-  - 
-  - 
+  - Invisible/PlayerCollider
+  - Invisible/InteractableCollider
+  - Player
   - 
   - 
   - 

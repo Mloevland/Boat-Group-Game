@@ -537,7 +537,7 @@ MonoBehaviour:
   moveSpeed: 5
   groundLayer:
     serializedVersion: 2
-    m_Bits: 776
+    m_Bits: 1800
   climbableLayer:
     serializedVersion: 2
     m_Bits: 768
