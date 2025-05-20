@@ -6514,7 +6514,7 @@
     "m_ObjectId": "368f3b5a25744946ba35ef232e804dff",
     "m_Title": "Normal Outline Calculation",
     "m_Position": {
-        "x": -1527.0001220703125,
+        "x": -1527.0,
         "y": -136.0
     }
 }
@@ -6843,8 +6843,8 @@
     "m_ObjectId": "3c935ab522564f83b0054e27e89c80e2",
     "m_Title": "Step Normal Outlines",
     "m_Position": {
-        "x": -179.00003051757813,
-        "y": -24.00000762939453
+        "x": -179.0,
+        "y": -24.0
     }
 }
 
@@ -7910,8 +7910,8 @@
     "m_ObjectId": "4db385487664400cae456a7cb110668f",
     "m_Title": "Color Output",
     "m_Position": {
-        "x": 614.0000610351563,
-        "y": 99.00001525878906
+        "x": 614.0,
+        "y": 99.0
     }
 }
 
@@ -8008,8 +8008,8 @@
     "m_ObjectId": "4f159d609f924d1a9efc4eb9e1045d48",
     "m_Title": "Color Outline Calculation",
     "m_Position": {
-        "x": -647.0001220703125,
-        "y": 576.0000610351563
+        "x": -647.0,
+        "y": 576.0
     }
 }
 
@@ -9722,7 +9722,7 @@
     "m_Title": "Step Color Outlines",
     "m_Position": {
         "x": 38.0,
-        "y": 524.0000610351563
+        "y": 524.0
     }
 }
 
@@ -16313,7 +16313,7 @@
     "m_ObjectId": "d590f2ba42b44d8db61473f163b08eea",
     "m_Title": "Line Mask Output",
     "m_Position": {
-        "x": 874.0000610351563,
+        "x": 874.0,
         "y": 909.0
     }
 }
@@ -17963,7 +17963,7 @@
     "m_ObjectId": "edf7f9ba54e7446a916229a086292c26",
     "m_Title": "Combine Outlines and Blit",
     "m_Position": {
-        "x": 2868.000244140625,
+        "x": 2868.0,
         "y": -538.0
     }
 }
@@ -18013,7 +18013,7 @@
     "m_ObjectId": "ee35f503adb241ada1e10802941c72d4",
     "m_Title": "Screen Edge Mask",
     "m_Position": {
-        "x": -1411.0001220703125,
+        "x": -1411.0,
         "y": -1533.0
     }
 }
