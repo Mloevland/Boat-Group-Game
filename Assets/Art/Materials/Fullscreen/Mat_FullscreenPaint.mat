@@ -98,12 +98,14 @@ Material:
     - _CriticalObjectMaxBlur: 1
     - _Cull: 2
     - _Cutoff: 0.5
-    - _DepthOfField: 3.7
+    - _DANGER: 1
+    - _DepthOfField: 3.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _Float: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
