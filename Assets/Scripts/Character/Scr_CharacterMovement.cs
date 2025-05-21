@@ -242,15 +242,15 @@ public class Scr_CharacterMovement : MonoBehaviour
 
         for (int i = 0; i < raycastOffsets.Length; i++)
         {
-            if (Physics.Raycast(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, Vector3.down, out hit, 1.07f * transform.localScale.y * raycastScale, groundLayer))
+            if (Physics.Raycast(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y * 0.33f, Vector3.down, out hit, 1.07f * transform.localScale.y * raycastScale, groundLayer))
             {
-                Debug.DrawLine(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, hit.point, Color.green);
+                Debug.DrawLine(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y * 0.33f, hit.point, Color.green);
                 groundNormal += hit.normal;
                 groundDetected = true; 
             }
             else
             {
-                Debug.DrawLine(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y + Vector3.down * 1.05f * transform.localScale.y * raycastScale, Color.red);
+                Debug.DrawLine(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y * 0.33f, positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y + Vector3.down * 1.05f * transform.localScale.y * raycastScale, Color.red);
             }
         }
         groundNormal.Normalize();
