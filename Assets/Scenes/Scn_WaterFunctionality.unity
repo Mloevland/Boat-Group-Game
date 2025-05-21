@@ -124,51 +124,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2916570863362053800, guid: 49ffeae56ca4e9543bf2fe8a08c62efe, type: 3}
   m_PrefabInstance: {fileID: 619216670}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5164942 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4658820360323987993, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-  m_PrefabInstance: {fileID: 978645360}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5164949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5164942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a14f972b4c7f1214585d5039153fff79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 10d6adc3f10973846b9e6a1ba69d80c9, type: 2}
-  unityEventResponse:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 796927916}
-        m_TargetAssemblyTypeName: Scr_CharacterRagdoller, Character
-        m_MethodName: ResetRagdoll
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 796927919}
-        m_TargetAssemblyTypeName: Scr_CharacterMovement, Character
-        m_MethodName: RespawnPlayer
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &14024782 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6897756558726502734, guid: 49ffeae56ca4e9543bf2fe8a08c62efe, type: 3}
@@ -2382,28 +2337,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2563496969622287784, guid: 49ffeae56ca4e9543bf2fe8a08c62efe, type: 3}
   m_PrefabInstance: {fileID: 619216670}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &796927916 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8160135570288556057, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-  m_PrefabInstance: {fileID: 978645360}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68a039bbbceb944b86de76810b9632c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &796927919 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3850604312119665862, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-  m_PrefabInstance: {fileID: 978645360}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f5ffa17d3a79094abf9360ed7cc8581, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &797128591 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6170625038081293824, guid: 49ffeae56ca4e9543bf2fe8a08c62efe, type: 3}
@@ -2899,42 +2832,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 490094226830300158, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_Height
-      value: 0.003
-      objectReference: {fileID: 0}
-    - target: {fileID: 830486482111589126, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: buoyancy
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 925037696750139238, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 925037696750139238, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 925037696750139238, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1029399806645096983, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: buoyancy
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1531160979677811650, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1531160979677811650, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1531160979677811650, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2046437896919474715, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.21644521
@@ -2975,173 +2872,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2176334920027702329, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2176334920027702329, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2176334920027702329, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2181184853005623135, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2181184853005623135, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2181184853005623135, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388806941491249536, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_Height
-      value: 0.003
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919871250677880703, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919871250677880703, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919871250677880703, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3266724666502822699, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3266724666502822699, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3266724666502822699, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3696690529090939973, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
       propertyPath: m_Name
       value: Stimulated_Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3861378771580350493, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: buoyancy
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3898967368385554062, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: buoyancy
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3932866481549992105, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: buoyancy
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3932866481549992105, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: underWaterDrag
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3932866481549992105, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: underWaterAngularDrag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4268596171048330845, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4268596171048330845, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4268596171048330845, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4481921875451038285, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: buoyancy
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5367317436866202859, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: buoyancy
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5680162987441503569, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5680162987441503569, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5680162987441503569, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6481201280135155732, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: buoyancy
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6969520650121378139, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6969520650121378139, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6969520650121378139, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7159369061818235947, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: buoyancy
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676262508021420968, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676262508021420968, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7676262508021420968, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8328859411975407880, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: buoyancy
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8381805421504422573, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8381805421504422573, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8381805421504422573, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9213007707443195905, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      propertyPath: buoyancy
-      value: 0.4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4658820360323987993, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5164949}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f82396844ed53c47b33a94c7f59a04f, type: 3}
 --- !u!1 &983598273
 GameObject:

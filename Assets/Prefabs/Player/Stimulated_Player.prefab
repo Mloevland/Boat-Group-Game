@@ -568,8 +568,8 @@ Rigidbody:
   m_GameObject: {fileID: 542545980639540935}
   serializedVersion: 5
   m_Mass: 1.875
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0.3
+  m_AngularDamping: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -585,7 +585,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!144 &2152219895893798413
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -646,7 +646,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   underWaterDrag: 5
   underWaterAngularDrag: 2
-  buoyancy: 15
+  buoyancy: 0.7
 --- !u!1 &626156995325469904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,8 +1115,8 @@ Rigidbody:
   m_GameObject: {fileID: 1837297955860969489}
   serializedVersion: 5
   m_Mass: 1.25
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1132,7 +1132,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!144 &3338129825473162750
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1191,9 +1191,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c391454a211f06a4faf9687440a00f0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  underWaterDrag: 5
-  underWaterAngularDrag: 2
-  buoyancy: 15
+  underWaterDrag: 8
+  underWaterAngularDrag: 1
+  buoyancy: 0.2
 --- !u!1 &2481666118014492979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,7 +1624,7 @@ CapsuleCollider:
   m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.0006
-  m_Height: 0.0031840075
+  m_Height: 0.003
   m_Direction: 1
   m_Center: {x: 0, y: 0.0015920037, z: 0}
 --- !u!54 &3266724666502822699
@@ -1636,8 +1636,8 @@ Rigidbody:
   m_GameObject: {fileID: 2738199850862215114}
   serializedVersion: 5
   m_Mass: 1.875
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0.3
+  m_AngularDamping: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1653,7 +1653,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!144 &2963447036745616645
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1714,7 +1714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   underWaterDrag: 5
   underWaterAngularDrag: 2
-  buoyancy: 15
+  buoyancy: 0.4
 --- !u!1 &2856252229732459602
 GameObject:
   m_ObjectHideFlags: 0
@@ -1814,8 +1814,8 @@ Rigidbody:
   m_GameObject: {fileID: 2918375796986716809}
   serializedVersion: 5
   m_Mass: 1.25
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0.3
+  m_AngularDamping: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1831,7 +1831,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!144 &5038378479333008603
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   underWaterDrag: 5
   underWaterAngularDrag: 2
-  buoyancy: 15
+  buoyancy: 0.5
 --- !u!1 &2929094872949955696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,6 +2381,7 @@ GameObject:
   - component: {fileID: 1154504354001819228}
   - component: {fileID: 6507860509797115501}
   - component: {fileID: 8284988456420511855}
+  - component: {fileID: 5358176712063899701}
   m_Layer: 0
   m_Name: InputListener
   m_TagString: Untagged
@@ -2543,6 +2544,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5358176712063899701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4658820360323987993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a14f972b4c7f1214585d5039153fff79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 10d6adc3f10973846b9e6a1ba69d80c9, type: 2}
+  unityEventResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8160135570288556057}
+        m_TargetAssemblyTypeName: Scr_CharacterRagdoller, Character
+        m_MethodName: ResetRagdoll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3850604312119665862}
+        m_TargetAssemblyTypeName: Scr_CharacterMovement, Character
+        m_MethodName: RespawnPlayer
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4731337668519143508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2661,7 +2702,7 @@ CapsuleCollider:
   m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.0006
-  m_Height: 0.0031840068
+  m_Height: 0.003
   m_Direction: 1
   m_Center: {x: 0, y: 0.0015920034, z: 0}
 --- !u!54 &925037696750139238
@@ -2673,8 +2714,8 @@ Rigidbody:
   m_GameObject: {fileID: 5136089498817536551}
   serializedVersion: 5
   m_Mass: 1.875
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0.3
+  m_AngularDamping: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2690,7 +2731,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!144 &4166210440494449141
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -2751,7 +2792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   underWaterDrag: 5
   underWaterAngularDrag: 2
-  buoyancy: 15
+  buoyancy: 0.4
 --- !u!1 &5173157716628078509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2884,8 +2925,8 @@ Rigidbody:
   m_GameObject: {fileID: 5354693996368751638}
   serializedVersion: 5
   m_Mass: 1.25
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0.3
+  m_AngularDamping: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -2901,7 +2942,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!144 &2166399294122456576
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -2962,7 +3003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   underWaterDrag: 5
   underWaterAngularDrag: 2
-  buoyancy: 15
+  buoyancy: 0.3
 --- !u!1 &5402429307903136674
 GameObject:
   m_ObjectHideFlags: 0
@@ -3031,8 +3072,8 @@ Rigidbody:
   m_GameObject: {fileID: 5402429307903136674}
   serializedVersion: 5
   m_Mass: 1.875
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0.3
+  m_AngularDamping: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3048,7 +3089,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!144 &7237807155845562665
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -3109,7 +3150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   underWaterDrag: 5
   underWaterAngularDrag: 2
-  buoyancy: 15
+  buoyancy: 0.7
 --- !u!1 &5419096874972489159
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,8 +3254,8 @@ Rigidbody:
   m_GameObject: {fileID: 5510536215011956680}
   serializedVersion: 5
   m_Mass: 3.125
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3230,7 +3271,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!144 &7559998957966334510
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -3291,7 +3332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   underWaterDrag: 5
   underWaterAngularDrag: 2
-  buoyancy: 15
+  buoyancy: 0.5
 --- !u!1 &5613237010264915389
 GameObject:
   m_ObjectHideFlags: 0
@@ -3392,8 +3433,8 @@ Rigidbody:
   m_GameObject: {fileID: 6101468591776613838}
   serializedVersion: 5
   m_Mass: 3.125
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0.3
+  m_AngularDamping: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3409,7 +3450,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!114 &4481921875451038285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3424,7 +3465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   underWaterDrag: 5
   underWaterAngularDrag: 2
-  buoyancy: 15
+  buoyancy: 1
 --- !u!1 &6350884533261236061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3783,8 +3824,8 @@ Rigidbody:
   m_GameObject: {fileID: 6729219896903102876}
   serializedVersion: 5
   m_Mass: 1.25
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0.3
+  m_AngularDamping: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -3800,7 +3841,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!144 &5140563472485180208
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -3861,7 +3902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   underWaterDrag: 5
   underWaterAngularDrag: 2
-  buoyancy: 15
+  buoyancy: 0.3
 --- !u!1 &7195204856608265133
 GameObject:
   m_ObjectHideFlags: 0
@@ -3993,8 +4034,8 @@ Rigidbody:
   m_GameObject: {fileID: 7266877985460561777}
   serializedVersion: 5
   m_Mass: 1.25
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 0.3
+  m_AngularDamping: 0.3
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4010,7 +4051,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!144 &3140710240282363528
 CharacterJoint:
   m_ObjectHideFlags: 0
@@ -4071,7 +4112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   underWaterDrag: 5
   underWaterAngularDrag: 2
-  buoyancy: 15
+  buoyancy: 0.5
 --- !u!1 &7462439776082019227
 GameObject:
   m_ObjectHideFlags: 0
