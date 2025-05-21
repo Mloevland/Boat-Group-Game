@@ -166,6 +166,7 @@ Material:
     - _XRMotionVectorsPass: 1
     - _ZWrite: 1
     m_Colors:
+    - _Algae_Color: {r: 0.35686275, g: 0.31919527, b: 0.16078433, a: 1}
     - _AmbientColor: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

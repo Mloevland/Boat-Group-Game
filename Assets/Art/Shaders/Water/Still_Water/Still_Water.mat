@@ -46,13 +46,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Cutoff: 0
     - _Depth: 0.16
     - _Distance: 1.28
     - _Duckfood_Scale: 1
+    - _Falloff: 0.52
     - _FoamAmount: 0.67
     - _FoamCutOff: 1.08
     - _FoamScale: 146.33
     - _FoamSpeed: 0.08
+    - _Fresnel: 0.82
     - _NormalStrenght: 2
     - _Normal_Speed: 0.05
     - _Normal_Tiling: 103.26
@@ -66,6 +69,7 @@ Material:
     - _DeepColor: {r: 0.35686275, g: 0.3254902, b: 0.16078432, a: 0.78039217}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _SurfaceColor: {r: 0.20000002, g: 0.19215688, b: 0.09411766, a: 0.6117647}
+    - _WaterAlpha: {r: 0.8, g: 1.1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &584276541486700808
