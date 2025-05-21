@@ -54,8 +54,8 @@ Material:
     - _FoamScale: 146.33
     - _FoamSpeed: 0.08
     - _NormalStrenght: 2
-    - _Normal_Speed: 0.24
-    - _Normal_Tiling: 29.21
+    - _Normal_Speed: 0.05
+    - _Normal_Tiling: 103.26
     - _QueueControl: 1
     - _QueueOffset: 0
     - _RefractionScale: 1
