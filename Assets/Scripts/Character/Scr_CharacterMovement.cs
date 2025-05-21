@@ -17,6 +17,8 @@ public class Scr_CharacterMovement : MonoBehaviour
     public float velPower = 2f;
     public float jumpForce = 4f;
 
+    public float raycastScale = 1;
+
     private float jumpResetBuffer = 0.2f;
     private float jumpResetTimer = 0;
     private bool bufferJumpReset = false;
@@ -96,11 +98,11 @@ public class Scr_CharacterMovement : MonoBehaviour
             rb.AddForce(Vector3.down * 3f);
 
             RaycastHit hit;
-            if(Physics.Raycast(positionReferencePoint.position, new Vector3(movementInput.x,0,movementInput.y), out hit, 0.6f * transform.localScale.y, climbableLayer))
+            if(Physics.Raycast(positionReferencePoint.position, new Vector3(movementInput.x,0,movementInput.y), out hit, 0.6f * transform.localScale.y * raycastScale, climbableLayer))
             {
                 RaycastHit hit2;
 
-                if(Physics.Raycast(hit.point + (Vector3.up*2 - hit.normal*0.3f) * transform.localScale.y, Vector3.down, out hit2, 2f * transform.localScale.y, groundLayer))
+                if(Physics.Raycast(hit.point + (Vector3.up*2 - hit.normal*0.3f) * transform.localScale.y * raycastScale, Vector3.down, out hit2, 2f * transform.localScale.y * raycastScale, groundLayer))
                 {
                     PlayOverrideAnimation("Climb",transform.position, new Vector3(hit.point.x,hit2.point.y,hit.point.z),
                         Quaternion.LookRotation(new Vector3(hit.point.x, transform.position.y, hit.point.z) - transform.position, Vector3.up), 0.05f, 0.6f);
@@ -126,7 +128,7 @@ public class Scr_CharacterMovement : MonoBehaviour
         else
         {
             RaycastHit hit;
-            if (Physics.Raycast(positionReferencePoint.position, new Vector3(movementInput.x, 0, movementInput.y), out hit, 0.6f * transform.localScale.y, groundLayer))
+            if (Physics.Raycast(positionReferencePoint.position, new Vector3(movementInput.x, 0, movementInput.y), out hit, 0.6f * transform.localScale.y * raycastScale, groundLayer))
             {
 
             }
@@ -240,7 +242,7 @@ public class Scr_CharacterMovement : MonoBehaviour
 
         for (int i = 0; i < raycastOffsets.Length; i++)
         {
-            if (Physics.Raycast(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, Vector3.down, out hit, 1.07f * transform.localScale.y, groundLayer))
+            if (Physics.Raycast(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, Vector3.down, out hit, 1.07f * transform.localScale.y * raycastScale, groundLayer))
             {
                 Debug.DrawLine(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, hit.point, Color.green);
                 groundNormal += hit.normal;
@@ -248,7 +250,7 @@ public class Scr_CharacterMovement : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y + Vector3.down * 1.05f * transform.localScale.y, Color.red);
+                Debug.DrawLine(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y, positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y + Vector3.down * 1.05f * transform.localScale.y * raycastScale, Color.red);
             }
         }
         groundNormal.Normalize();
@@ -503,8 +505,15 @@ public class Scr_CharacterMovement : MonoBehaviour
         if(!value)
             return;
 
-        rb.AddForce(Vector3.up * jumpForce + new Vector3(movementInput.x,0,movementInput.y) * 1, ForceMode.Impulse);
         ani.SetTrigger("Jump");
+        ApplyJumpForce();
+        
+    }
+
+    public void ApplyJumpForce()
+    {
+        rb.AddForce(Vector3.up * jumpForce + new Vector3(movementInput.x, 0, movementInput.y) * 1, ForceMode.Impulse);
+
         jumpResetTimer = jumpResetBuffer;
         bufferJumpReset = true;
         SetGrounded(false);
