@@ -43,6 +43,6 @@ Material:
     - _ProjectionScale_1: -18.63
     - _UseFresnel: 0
     m_Colors:
-    - _Color: {r: 0.6698113, g: 0.37705386, b: 0.33174616, a: 1}
+    - _Color: {r: 0.649, g: 0.4644878, b: 0.437426, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
