@@ -24,6 +24,30 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Base_Tex:
+        m_Texture: {fileID: 2800000, guid: dc04604c4fa328846a1a7a53f914e74e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Layer1_Tex:
+        m_Texture: {fileID: 2800000, guid: 0f1bc541d4bda47399f10e5dd0b961c2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Layer2_Tex:
+        m_Texture: {fileID: 2800000, guid: 383fb985338ddc844bc752d570787bff, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Layer3_Tex:
+        m_Texture: {fileID: 2800000, guid: 30cae4405e4037f40b9eb02df56e8efc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Layer_1:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_0dba20211eb14d02b29d821c4f106263_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TriplanerProjection_1efa9d6b5a534487a191855eed36d776_Texture_4250255971_Texture2D:
         m_Texture: {fileID: 2800000, guid: 697bfea95442bc241919c56dd61315e5, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -32,12 +56,36 @@ Material:
         m_Texture: {fileID: 2800000, guid: dc04604c4fa328846a1a7a53f914e74e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_58e035ae9ac749629095b843e19d55fd_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TriplanerProjection_a2e983aee2214b1a8dd545639d9574c7_Texture_4250255971_Texture2D:
         m_Texture: {fileID: 2800000, guid: 697bfea95442bc241919c56dd61315e5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_ad6aa08d35654117922eaa328fa56f0a_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_ad997e8f6205423490ed414c9440602a_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_c59c560a493245a7978a8afef85e6140_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_d78acc70cf094cec87f9fdc991350f12_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TriplanerProjection_e1239518fc74437fa08781c438f0de43_Texture_4250255971_Texture2D:
         m_Texture: {fileID: 2800000, guid: 697bfea95442bc241919c56dd61315e5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_f32e0c411984451ca327365b98b976bc_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -54,10 +102,25 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Base_Blend: 2
+    - _Base_Tiling: 29.21
+    - _Layer1_Blend: 0.47
+    - _Layer1_Brightness: 1
+    - _Layer1_Tiling: 17.01
+    - _Layer2_Blend: 100
+    - _Layer2_Brightness: 5.9
+    - _Layer2_Tiling: 41.87
+    - _Layer3_Blend: 119.3
+    - _Layer3_Brightness: 5.16
+    - _Layer3_Tiling: 32.2
     - _Noise_1_scale: 29.06
     - _QueueControl: 0
     - _QueueOffset: 0
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Layer1_Color: {r: 0.4039216, g: 0.2901961, b: 0.25490198, a: 1}
+    - _Layer2_Color: {r: 0.6933962, g: 0.835935, b: 1, a: 0}
+    - _Layer3_Color: {r: 0.45374906, g: 0.23362406, b: 0.46666667, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6641777280939480094
