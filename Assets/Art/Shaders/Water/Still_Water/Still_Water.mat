@@ -55,7 +55,7 @@ Material:
     - _FoamCutOff: 1.08
     - _FoamScale: 146.33
     - _FoamSpeed: 0.08
-    - _Fresnel: 0.82
+    - _Fresnel: 0
     - _NormalStrenght: 2
     - _Normal_Speed: 0.05
     - _Normal_Tiling: 103.26
@@ -64,7 +64,7 @@ Material:
     - _RefractionScale: 1
     - _RefractionSpeed: 0.02
     - _RefractionStrength: 0.1
-    - _Smoothness: 1
+    - _Smoothness: 0.133
     m_Colors:
     - _DeepColor: {r: 0.35686275, g: 0.3254902, b: 0.16078432, a: 0.78039217}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
