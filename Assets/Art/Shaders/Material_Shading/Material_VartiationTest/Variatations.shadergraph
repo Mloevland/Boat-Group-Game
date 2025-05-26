@@ -954,31 +954,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
-    "m_ObjectId": "2f5667ac49e746b98b0881aa29ff0c81",
-    "m_Id": 1,
-    "m_DisplayName": "Out_Vector4",
-    "m_SlotType": 1,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "OutVector4",
-    "m_StageCapability": 3,
-    "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
-    },
-    "m_Labels": []
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.GroupData",
     "m_ObjectId": "2fbceab5fb234106a431f5a2a53925d2",
     "m_Title": "Green Channel",
@@ -1046,10 +1021,10 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
     "m_ObjectId": "35cf7b3f50214e30a9b59177cc5083c8",
     "m_Id": 2,
-    "m_DisplayName": "Out_Vector4 (1)",
+    "m_DisplayName": "Color",
     "m_SlotType": 1,
     "m_Hidden": false,
-    "m_ShaderOutputName": "OutVector41",
+    "m_ShaderOutputName": "Color",
     "m_StageCapability": 2,
     "m_Value": {
         "x": 0.0,
@@ -2427,9 +2402,6 @@
         },
         {
             "m_Id": "d319171db999419bb31c4cff842510bd"
-        },
-        {
-            "m_Id": "2f5667ac49e746b98b0881aa29ff0c81"
         },
         {
             "m_Id": "35cf7b3f50214e30a9b59177cc5083c8"

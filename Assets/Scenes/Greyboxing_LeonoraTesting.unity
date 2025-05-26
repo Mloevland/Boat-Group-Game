@@ -8751,6 +8751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: City_Test
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 442f0ea9fe86a2444b0c47c6653f38ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9268,7 +9272,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 581de248d966d5b43b85def94ecff74b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -103.9
+      value: -124.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 581de248d966d5b43b85def94ecff74b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9276,7 +9280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 581de248d966d5b43b85def94ecff74b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 109.5
+      value: 87.26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 581de248d966d5b43b85def94ecff74b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16003,15 +16007,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6e3372a3b89c85c4ea4b6de9e0ae8fb9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -69.9
+      value: -67.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6e3372a3b89c85c4ea4b6de9e0ae8fb9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.887
+      value: 19.89
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6e3372a3b89c85c4ea4b6de9e0ae8fb9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 47
+      value: 69.55
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6e3372a3b89c85c4ea4b6de9e0ae8fb9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -16044,6 +16048,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6e3372a3b89c85c4ea4b6de9e0ae8fb9, type: 3}
       propertyPath: m_Name
       value: Goldentower
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6e3372a3b89c85c4ea4b6de9e0ae8fb9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20309,15 +20317,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2eca035c5c6657a4bb87bf3e7d5eaece, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -74.3
+      value: -77.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2eca035c5c6657a4bb87bf3e7d5eaece, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.24
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2eca035c5c6657a4bb87bf3e7d5eaece, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 74.2
+      value: 81.26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2eca035c5c6657a4bb87bf3e7d5eaece, type: 3}
       propertyPath: m_LocalRotation.w

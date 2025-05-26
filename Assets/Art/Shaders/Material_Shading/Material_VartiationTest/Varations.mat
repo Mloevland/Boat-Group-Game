@@ -103,24 +103,24 @@ Material:
     m_Ints: []
     m_Floats:
     - _Base_Blend: 2
-    - _Base_Tiling: 29.21
-    - _Layer1_Blend: 0.47
-    - _Layer1_Brightness: 1
+    - _Base_Tiling: 29.62
+    - _Layer1_Blend: 1
+    - _Layer1_Brightness: 17.73
     - _Layer1_Tiling: 17.01
     - _Layer2_Blend: 100
     - _Layer2_Brightness: 5.9
     - _Layer2_Tiling: 41.87
-    - _Layer3_Blend: 119.3
-    - _Layer3_Brightness: 5.16
-    - _Layer3_Tiling: 32.2
+    - _Layer3_Blend: 2
+    - _Layer3_Brightness: 40.1
+    - _Layer3_Tiling: 27.64
     - _Noise_1_scale: 29.06
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Layer1_Color: {r: 0.4039216, g: 0.2901961, b: 0.25490198, a: 1}
-    - _Layer2_Color: {r: 0.6933962, g: 0.835935, b: 1, a: 0}
-    - _Layer3_Color: {r: 0.45374906, g: 0.23362406, b: 0.46666667, a: 1}
+    - _Color: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
+    - _Layer1_Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+    - _Layer2_Color: {r: 0.532, g: 0, b: 0.50983316, a: 0}
+    - _Layer3_Color: {r: 0.6464489, g: 0.66646206, b: 0.6886792, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6641777280939480094
