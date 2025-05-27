@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Scr_CharacterMovement : MonoBehaviour
 {
@@ -64,7 +65,7 @@ public class Scr_CharacterMovement : MonoBehaviour
 
             return;
         }
-
+       
 
         CheckGrounded();
 
@@ -147,6 +148,8 @@ public class Scr_CharacterMovement : MonoBehaviour
 
     public void PlayOverrideAnimation(string animationName,Vector3 startPos, Vector3 matchPos,Quaternion rotation, float normalizedStartTime, float normalizedEndTime)
     {
+        rb.linearVelocity = Vector3.zero;
+
         ani.applyRootMotion = true;
         rb.isKinematic = true;
 
@@ -239,6 +242,7 @@ public class Scr_CharacterMovement : MonoBehaviour
         RaycastHit hit;
         groundNormal = Vector3.zero;
         bool groundDetected = false;
+        bool slideGround = false;
 
         for (int i = 0; i < raycastOffsets.Length; i++)
         {
@@ -247,6 +251,9 @@ public class Scr_CharacterMovement : MonoBehaviour
                 Debug.DrawLine(positionReferencePoint.position + (raycastOffsets[i]*0.5f) * transform.localScale.y * 0.33f, hit.point, Color.green);
                 groundNormal += hit.normal;
                 groundDetected = true; 
+
+                slideGround = hit.collider.CompareTag("slide");
+
             }
             else
             {
@@ -262,6 +269,12 @@ public class Scr_CharacterMovement : MonoBehaviour
             if(Vector3.Dot(groundNormal, Vector3.up) < 0.8f)
             {
                 
+                slidingVelocity = Vector3.ProjectOnPlane(groundNormal, Vector3.up) * 0.5f;
+                Debug.Log("Start Slide with velocity " + slidingVelocity + " and a magnitude of " + slidingVelocity.magnitude);
+                SetSliding(true);
+            }
+            if(slideGround)
+            {
                 slidingVelocity = Vector3.ProjectOnPlane(groundNormal, Vector3.up) * 0.5f;
                 Debug.Log("Start Slide with velocity " + slidingVelocity + " and a magnitude of " + slidingVelocity.magnitude);
                 SetSliding(true);
@@ -390,7 +403,7 @@ public class Scr_CharacterMovement : MonoBehaviour
 
             movementInput = (rightMovement + (forwardMovement*playerCompliance)*limitMag);
 
-            Debug.Log(limitMag);
+            //Debug.Log(limitMag);
             if (limitMag > 0.05f)
             {
                 movementInput.Normalize();

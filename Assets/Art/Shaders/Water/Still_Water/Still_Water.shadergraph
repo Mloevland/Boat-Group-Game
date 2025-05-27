@@ -4512,7 +4512,7 @@
     "m_ObjectId": "1d2ee350ebfd419eb2c32cfd0fd6e1c5",
     "m_Title": "Duckfood Islands",
     "m_Position": {
-        "x": -933.0,
+        "x": -933.0000610351563,
         "y": -440.0
     }
 }
@@ -4605,8 +4605,8 @@
     "m_ObjectId": "1e561c352aff465db41e827940d429ec",
     "m_Title": "Water Movement",
     "m_Position": {
-        "x": -2975.0,
-        "y": 779.0
+        "x": -2975.000732421875,
+        "y": 779.0000610351563
     }
 }
 
@@ -5733,7 +5733,7 @@
     "m_ShaderOutputName": "OutMinMax",
     "m_StageCapability": 3,
     "m_Value": {
-        "x": 0.6000000238418579,
+        "x": 0.30000001192092898,
         "y": 2.0
     },
     "m_DefaultValue": {
@@ -7013,7 +7013,7 @@
     "m_Title": "Color",
     "m_Position": {
         "x": -738.0,
-        "y": -1013.0
+        "y": -1013.000244140625
     }
 }
 
@@ -12540,8 +12540,8 @@
     "m_ObjectId": "938f5c29faaf4edd9c4c99b2c297346e",
     "m_Title": "Refraction",
     "m_Position": {
-        "x": -5852.0,
-        "y": -3555.0
+        "x": -5852.00048828125,
+        "y": -3555.00048828125
     }
 }
 
@@ -12785,8 +12785,8 @@
     "m_ObjectId": "98a2158b204347dba5b430265eade241",
     "m_Title": "Foam",
     "m_Position": {
-        "x": -7368.0,
-        "y": -1404.0
+        "x": -7368.0009765625,
+        "y": -1404.0003662109375
     }
 }
 
