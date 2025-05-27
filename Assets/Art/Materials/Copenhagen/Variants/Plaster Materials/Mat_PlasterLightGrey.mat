@@ -41,6 +41,6 @@ Material:
     m_Floats:
     - _UseFresnel: 0
     m_Colors:
-    - _Color: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+    - _Color: {r: 0.674, g: 0.674, b: 0.674, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
