@@ -36,10 +36,29 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Base_Tex:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_ad997e8f6205423490ed414c9440602a_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_c59c560a493245a7978a8afef85e6140_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_f32e0c411984451ca327365b98b976bc_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _Base_Blend: 2
+    - _Base_Tiling: 1
     m_Colors:
+    - _Base_Color: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
     - _Color: {r: 0.94509804, g: 0.94168234, b: 0.9019608, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

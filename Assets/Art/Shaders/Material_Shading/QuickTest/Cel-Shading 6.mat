@@ -24,6 +24,22 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Base_Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Layer1_Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Layer2_Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Layer3_Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _NormalMap:
         m_Texture: {fileID: 2800000, guid: e231e4c02c48ee14aafa55f7b1a843c1, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -60,6 +76,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: 8f70c1684dfcd4a51bc2bd66f5fcd1e2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_ad997e8f6205423490ed414c9440602a_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_c59c560a493245a7978a8afef85e6140_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TriplanerProjection_f32e0c411984451ca327365b98b976bc_Texture_4250255971_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 48192232a3f61d24482ef67fddf5d15d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -76,6 +104,8 @@ Material:
     m_Floats:
     - _AddToBleed: 0.38
     - _AddToScale: 1.36
+    - _Base_Blend: 0
+    - _Base_Tiling: 0
     - _BlendSharpness: 2.39
     - _BlendSharpness_1: 2.52
     - _Blending: 8
@@ -87,6 +117,15 @@ Material:
     - _Height_Cutoff: -0.11
     - _Height_Falloff: 0.02
     - _HueShiftAmount: 51.3
+    - _Layer1_Blend: 0
+    - _Layer1_Brightness: 0
+    - _Layer1_Tiling: 0
+    - _Layer2_Blend: 0
+    - _Layer2_Brightness: 0
+    - _Layer2_Tiling: 0
+    - _Layer3_Blend: 0
+    - _Layer3_Brightness: 0
+    - _Layer3_Tiling: 0
     - _ProjectionScale: 0.15
     - _ProjectionScale_1: 0.08
     - _QueueControl: 0
@@ -109,9 +148,14 @@ Material:
     - _UseSpecular: 0
     - _UseWorldPos: 1
     m_Colors:
+    - _Algae_Color: {r: 0.28043786, g: 0.43396226, b: 0.29323158, a: 1}
     - _AmbientColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+    - _Base_Color: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 0.383, g: 0.11348148, b: 0, a: 1}
     - _Color_1: {r: 0.8862745, g: 0.72410077, b: 0, a: 1}
+    - _Layer1_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Layer2_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Layer3_Color: {r: 0, g: 0, b: 0, a: 1}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _Shadow_HSV: {r: -20, g: 1.4, b: 1, a: 0}
     - _Shadow_Strenght: {r: 1.14, g: 0.35, b: 0, a: 0}
