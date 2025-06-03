@@ -51,6 +51,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ProjectionScale_1: 1.9
     - _UseFresnel: 0
     m_Colors:
     - _Color: {r: 0.3773585, g: 0.34287348, b: 0.31861874, a: 1}

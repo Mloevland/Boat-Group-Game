@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_PlasterYellow 1
+  m_Name: Mat_PlasterrGray
   m_Shader: {fileID: -6465566751694194690, guid: 72010249813e131459d6b8cf0cab5a80, type: 3}
   m_Parent: {fileID: 2100000, guid: 5268981cdfc1a6945aa96ded2f07feda, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -43,6 +43,6 @@ Material:
     - _ProjectionScale_1: -18.63
     - _UseFresnel: 0
     m_Colors:
-    - _Color: {r: 0.44277322, g: 0.4503244, b: 0.4716981, a: 1}
+    - _Color: {r: 0.11307405, g: 0.31132078, b: 0.2269099, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
