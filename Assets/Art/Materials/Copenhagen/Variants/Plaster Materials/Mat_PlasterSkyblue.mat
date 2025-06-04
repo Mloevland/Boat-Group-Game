@@ -39,6 +39,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _ProjectionScale_1: 10.3
     - _UseFresnel: 0
     m_Colors:
     - _Color: {r: 0.46312, g: 0.54422885, b: 0.56, a: 1}
