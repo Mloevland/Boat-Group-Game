@@ -15,9 +15,13 @@ public class DisplayDialogue : MonoBehaviour
     public float audioFadeInDuration = 2f;
     public float audioFadeOutDuration = 3f;
 
+    [Header("Typing Settings")]
+    public float charactersPerSecond = 35f;
+
     private bool hasPlayed = false;
     private Coroutine fadeTextCoroutine;
     private Coroutine fadeAudioCoroutine;
+    private Coroutine typeCoroutine;
 
     void Start()
     {
@@ -49,12 +53,16 @@ public class DisplayDialogue : MonoBehaviour
 
         if (textComponent != null)
         {
-            string subtitleText = LanguageManager.Instance.GetSubtitle(subtitleKey);
-            textComponent.text = subtitleText;
+            textComponent.text = ""; // Clear existing text
             textComponent.enabled = true;
 
             if (fadeTextCoroutine != null) StopCoroutine(fadeTextCoroutine);
             fadeTextCoroutine = StartCoroutine(FadeTextAlpha(0f, 1f, subtitleFadeDuration));
+
+            string fullLine = LanguageManager.Instance.GetSubtitle(subtitleKey);
+
+            if (typeCoroutine != null) StopCoroutine(typeCoroutine);
+            typeCoroutine = StartCoroutine(TypeText(fullLine));
         }
 
         if (audioSource != null && clipToPlay != null)
@@ -69,9 +77,20 @@ public class DisplayDialogue : MonoBehaviour
         }
     }
 
+    IEnumerator TypeText(string fullText)
+    {
+        textComponent.text = "";
+        float delay = 1f / charactersPerSecond;
+
+        foreach (char c in fullText)
+        {
+            textComponent.text += c;
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
     IEnumerator HideAfterAudio()
     {
-        // Wait until it's time to start fading out
         yield return new WaitForSeconds(clipToPlay.length - audioFadeOutDuration);
 
         if (fadeTextCoroutine != null) StopCoroutine(fadeTextCoroutine);
