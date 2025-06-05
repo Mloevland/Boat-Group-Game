@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_ClothMaster
   m_Shader: {fileID: -6465566751694194690, guid: 72010249813e131459d6b8cf0cab5a80, type: 3}
-  m_Parent: {fileID: 2100000, guid: 408b67acacd7d544088785a5f43e13b6, type: 2}
+  m_Parent: {fileID: 2100000, guid: 7f3caaa5eef5bec4ea76f83f47188ab9, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
