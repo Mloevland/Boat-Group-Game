@@ -1,14 +1,18 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class DisplayDialogue : MonoBehaviour
 {
-    public string subtitleKey;                        // Unique subtitle key (e.g., "radio1")
-    public TextMeshProUGUI textComponent;             // UI text object
-    public AudioSource audioSource;                   // Audio source component
-    public AudioClip clipToPlay;                      // Dialogue audio clip
+    public string subtitleKey;
+    public TextMeshProUGUI textComponent;
+    public AudioSource audioSource;
+    public AudioClip clipToPlay;
 
-    private bool playerInRange = false;
+    public float fadeDuration = 0.5f;
+
+    private bool hasPlayed = false;
+    private Coroutine fadeCoroutine;
 
     void Start()
     {
@@ -17,56 +21,83 @@ public class DisplayDialogue : MonoBehaviour
             audioSource.clip = clipToPlay;
         }
 
-        // Optional: disable text until needed
         if (textComponent != null)
         {
+            SetTextAlpha(0f); // Ensure it's invisible at start
             textComponent.enabled = false;
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!hasPlayed && other.CompareTag("Player"))
         {
-            playerInRange = true;
-            UpdateText();
+            PlayOnce();
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void PlayOnce()
     {
-        if (other.CompareTag("Player"))
+        hasPlayed = true;
+
+        if (textComponent != null)
         {
-            playerInRange = false;
-
-            if (textComponent != null)
-                textComponent.enabled = false;
-        }
-    }
-
-    public void UpdateText()
-    {
-        if (playerInRange)
-        {
-            if (textComponent == null)
-            {
-                Debug.LogWarning("Text component not assigned on: " + gameObject.name);
-                return;
-            }
-
             string subtitleText = LanguageManager.Instance.GetSubtitle(subtitleKey);
             textComponent.text = subtitleText;
             textComponent.enabled = true;
 
-            PlayAudio();
+            // Start fade in
+            if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+            fadeCoroutine = StartCoroutine(FadeTextAlpha(0f, 1f, fadeDuration));
+        }
+
+        if (audioSource != null && clipToPlay != null)
+        {
+            audioSource.Play();
+            StartCoroutine(HideAfterAudio());
         }
     }
 
-    void PlayAudio()
+    IEnumerator HideAfterAudio()
     {
-        if (audioSource != null && !audioSource.isPlaying)
+        yield return new WaitForSeconds(clipToPlay.length);
+
+        // Fade out after audio
+        if (textComponent != null)
         {
-            audioSource.Play();
+            if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
+            fadeCoroutine = StartCoroutine(FadeTextAlpha(1f, 0f, fadeDuration));
+        }
+    }
+
+    IEnumerator FadeTextAlpha(float from, float to, float duration)
+    {
+        float time = 0f;
+        Color c = textComponent.color;
+
+        while (time < duration)
+        {
+            float t = time / duration;
+            c.a = Mathf.Lerp(from, to, t);
+            textComponent.color = c;
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        c.a = to;
+        textComponent.color = c;
+
+        if (to == 0f)
+            textComponent.enabled = false;
+    }
+
+    void SetTextAlpha(float alpha)
+    {
+        if (textComponent != null)
+        {
+            Color c = textComponent.color;
+            c.a = alpha;
+            textComponent.color = c;
         }
     }
 }
