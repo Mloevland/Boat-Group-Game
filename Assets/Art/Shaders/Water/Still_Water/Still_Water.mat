@@ -66,9 +66,9 @@ Material:
     - _RefractionStrength: 0.1
     - _Smoothness: 0.133
     m_Colors:
-    - _DeepColor: {r: 0.35686275, g: 0.3254902, b: 0.16078432, a: 0.78039217}
+    - _DeepColor: {r: 0.18770026, g: 0.34680137, b: 0.3584906, a: 0.78039217}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SurfaceColor: {r: 0.20000002, g: 0.19215688, b: 0.09411766, a: 0.6117647}
+    - _SurfaceColor: {r: 0.22017252, g: 0.23584908, b: 0.09678713, a: 0.6117647}
     - _WaterAlpha: {r: 0.69, g: 1.2, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
