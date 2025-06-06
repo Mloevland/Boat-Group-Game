@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 
 public class Scr_CharacterMovement : MonoBehaviour
 {
+    public bool startInOverride;
     public Animator ani;
     public Rigidbody rb;
     public Transform positionReferencePoint;
@@ -55,6 +56,8 @@ public class Scr_CharacterMovement : MonoBehaviour
     void Start()
     {
         limitMovementList = new List<Vector2>();
+        if (startInOverride)
+            ApplyOverrideParameters();
     }
 
     void FixedUpdate()
@@ -160,6 +163,14 @@ public class Scr_CharacterMovement : MonoBehaviour
         normalisedEndTime = normalizedEndTime;
 
         ani.SetTrigger(animationName);
+        overrideMovement = true;
+    }
+
+    private void ApplyOverrideParameters()
+    {
+        rb.linearVelocity = Vector3.zero;
+        ani.applyRootMotion = true;
+        rb.isKinematic = true;
         overrideMovement = true;
     }
 
