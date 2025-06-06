@@ -831,6 +831,7 @@ PlayerSettings:
   webWasm2023: 1
   webEnableSubmoduleStrippingCompatibility: 0
   scriptingDefineSymbols:
+    Standalone: PWB_URP
     WebGL: PWB_URP
   additionalCompilerArguments: {}
   platformArchitecture: {}
