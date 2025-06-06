@@ -40,7 +40,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _HueShiftAmount: 391.72
-    - _ProjectionScale_1: -18.63
+    - _ProjectionScale_1: -0.17
     - _UseFresnel: 0
     m_Colors:
     - _Color: {r: 0.6792453, g: 0.65927625, b: 0.46457815, a: 1}

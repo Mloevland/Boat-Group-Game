@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_PlasterOlive
   m_Shader: {fileID: -6465566751694194690, guid: 72010249813e131459d6b8cf0cab5a80, type: 3}
-  m_Parent: {fileID: 2100000, guid: 5268981cdfc1a6945aa96ded2f07feda, type: 2}
+  m_Parent: {fileID: 2100000, guid: e2b2b48cf596a044d8581eee895a0dd3, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -39,6 +39,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _ProjectionScale_1: 19.55
     - _UseFresnel: 0
     m_Colors:
     - _Color: {r: 0.49400002, g: 0.4685829, b: 0.42237002, a: 1}
