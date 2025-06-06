@@ -20,9 +20,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_PlasterDarkPurple
+  m_Name: Mat_Plaster_DarkBlue
   m_Shader: {fileID: -6465566751694194690, guid: 72010249813e131459d6b8cf0cab5a80, type: 3}
-  m_Parent: {fileID: 2100000, guid: 7df1b605d72c1874687a306f0c3f2e49, type: 2}
+  m_Parent: {fileID: 2100000, guid: 5268981cdfc1a6945aa96ded2f07feda, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -39,10 +39,10 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _ProjectionScale_1: 3.34
+    - _ProjectionScale_1: 10.3
     - _UseFresnel: 0
     m_Colors:
-    - _Color: {r: 0.41509432, g: 0.2995728, b: 0.3173629, a: 1}
-    - _Shadow_HSV: {r: -20, g: 1.4, b: 5.81, a: 0}
+    - _Color: {r: 0.1241545, g: 0.1868162, b: 0.2830189, a: 1}
+    - _Shadow_HSV: {r: 21.6, g: 1.66, b: 2.46, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
