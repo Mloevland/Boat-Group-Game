@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Art/3D Models/Copenhagen/Small Assets/WoodenBoard.prefab.meta
+guid: 7c652dd36c52d3f4185235090873c196
+========
 guid: 44674229b3a5bc943b7f6b4afa96e49c
+>>>>>>>> 69e9f8bbbb3f0fe29b2f6bbfad288eff4ea460bf:Assets/Prefabs/Assets/Small/BigMetalBox.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
