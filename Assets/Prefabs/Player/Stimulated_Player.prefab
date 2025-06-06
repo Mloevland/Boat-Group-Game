@@ -56,6 +56,15 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: fe673d246a6bda047ab82e23e45ffd92, type: 2}
+  - {fileID: 2100000, guid: fe673d246a6bda047ab82e23e45ffd92, type: 2}
+  - {fileID: 2100000, guid: fe673d246a6bda047ab82e23e45ffd92, type: 2}
+  - {fileID: 2100000, guid: fe673d246a6bda047ab82e23e45ffd92, type: 2}
+  - {fileID: 2100000, guid: fe673d246a6bda047ab82e23e45ffd92, type: 2}
+  - {fileID: 2100000, guid: fe673d246a6bda047ab82e23e45ffd92, type: 2}
+  - {fileID: 2100000, guid: fe673d246a6bda047ab82e23e45ffd92, type: 2}
+  - {fileID: 2100000, guid: fe673d246a6bda047ab82e23e45ffd92, type: 2}
+  - {fileID: 2100000, guid: fe673d246a6bda047ab82e23e45ffd92, type: 2}
+  - {fileID: 2100000, guid: fe673d246a6bda047ab82e23e45ffd92, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,7 +89,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -8978033622059219269, guid: ce8b4758321702a47963ff75dd4a3765, type: 3}
+  m_Mesh: {fileID: -8978033622059219269, guid: 138cfb60bfb0ff540944d3a957e1835c, type: 3}
   m_Bones:
   - {fileID: 51895824883986864}
   - {fileID: 7446177110371965377}
@@ -2085,6 +2094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5ffa17d3a79094abf9360ed7cc8581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startInOverride: 0
   ani: {fileID: 7322759679558276563}
   rb: {fileID: 5471011546087855584}
   positionReferencePoint: {fileID: 3877446902532120788}
@@ -2226,6 +2236,9 @@ MonoBehaviour:
   - {fileID: 3569531016029629892}
   footstepPlayer: {fileID: 395928793978343986}
   footstepSources: []
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &3833548859910033180
 GameObject:
   m_ObjectHideFlags: 0
