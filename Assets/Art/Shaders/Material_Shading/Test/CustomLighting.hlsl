@@ -10,7 +10,7 @@
 //------------------------------------------------------------------------------------------------------
 
 /*
-- Obtains the Direction, Color and Distance Atten for the Main Light.
+- Obtains the Direction, Color and Disadtance Atten for the Main Light.
 - (DistanceAtten is either 0 or 1 for directional light, depending if the light is in the culling mask or not)
 - If you want shadow attenutation, see MainLightShadows_float, or use MainLightFull_float instead
 */
@@ -260,7 +260,7 @@ void AdditionalLights_float(float3 SpecColor, float Smoothness, float3 WorldPosi
 #endif
 
 	Color = accumulatedColor;
-	Attenuation = accumulatedAttenuation;
+	Attenuation = accumulatedAttenuation + 0.2f;
 	Specular = specularColor;
 }
 // For backwards compatibility (before Shadowmask was introduced)
