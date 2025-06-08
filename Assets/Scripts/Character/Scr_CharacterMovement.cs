@@ -318,7 +318,7 @@ public class Scr_CharacterMovement : MonoBehaviour
     {
         HandleJumpBuffers();
 
-        if (overrideMovement)
+        if (overrideMovement && matchStartPosition != Vector3.zero)
         {
             MatchTarget();
 

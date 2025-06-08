@@ -4,7 +4,20 @@ public class Scr_BirdVolume : MonoBehaviour
 {
     public Scr_Bird[] birdsInVolume;
     public bool canScareAwayBirds = true;
+    public bool birdsCanWalkAround;
     public LayerMask groundLayer;
+
+
+    private void Start()
+    {
+        for (int i = 0; i < birdsInVolume.Length; i++)
+        {
+            if (birdsInVolume[i] != null)
+            {
+                birdsInVolume[i].canWander = birdsCanWalkAround;
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

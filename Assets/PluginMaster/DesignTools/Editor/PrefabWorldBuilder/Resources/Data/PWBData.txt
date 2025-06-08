@@ -1245,7 +1245,7 @@
                 "z": 0.0
             },
             "_spacingType": 0,
-            "_minSpacing": 1.0,
+            "_minSpacing": 0.33709001541137698,
             "_randomizePositions": true,
             "_randomness": 1.0,
             "_paintOnSurfaceToolSettings": {
@@ -3552,7 +3552,7 @@
             },
             "_origin": {
                 "x": 0.0,
-                "y": -5.300000190734863,
+                "y": 1.7052316665649415,
                 "z": 0.0
             },
             "_rotation": {

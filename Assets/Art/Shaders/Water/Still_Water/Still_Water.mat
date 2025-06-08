@@ -49,10 +49,13 @@ Material:
     - _Cutoff: 0
     - _Depth: 0.16
     - _Distance: 1.28
+    - _DuckFoodEdgeBuildup: 0.13
+    - _DuckFood_Speed: 0.2
+    - _Duckfood_EdgeNoise: 426.48
     - _Duckfood_Scale: 1
     - _Falloff: 0.52
-    - _FoamAmount: 0.67
-    - _FoamCutOff: 1.08
+    - _FoamAmount: 1.81
+    - _FoamCutOff: 0.89
     - _FoamScale: 146.33
     - _FoamSpeed: 0.08
     - _Fresnel: 0
