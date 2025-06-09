@@ -36,6 +36,14 @@ public class Scr_Bird : MonoBehaviour
         shouldFly = true;
     }
 
+    public void FlyToFood(Vector3 foodPosition)
+    {
+        flyToPosition = foodPosition;
+        flyTimer = Random.Range(-0.5f, 0.3f);
+        shouldFly = true;
+    }
+
+
     public void Update()
     {
         if (shouldFly)
