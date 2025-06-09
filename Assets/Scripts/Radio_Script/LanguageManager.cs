@@ -22,9 +22,9 @@ public class LanguageManager : MonoBehaviour
 
         // Initialize your 4 subtitle lines
         englishSubtitles.Add("radio1_line", "Storm warning. All citizens are re— [dropout] —quested to proceed to the nearest evacuation boat... [static]... Please remain calm and follow instructions. H— [glitch] —elp is on the way.");
-        englishSubtitles.Add("radio2", "The pain started, it could be controlled, but it became worse and worse. Your dad was there to calm me down.");
-        englishSubtitles.Add("radio3", "When the doctor finally arrived, a wave of relief hit me. But I froze when I heard her name...");
-        englishSubtitles.Add("radio4", "Before I knew it, you were there. All my fears and worries evaporated when I heard you cry...");
+        englishSubtitles.Add("radio2_line", "Proce— [audio crackle] —ed immediately to the nearest evacuation boat. Follow the routes and... [static] ...stay in o— [dropout] —pen areas. Evacu— [distortion] —ation is underway.");
+        englishSubtitles.Add("radio3_line", "Evacuation is... [long dropout] ...no longer possible. For... [crackle and noise] ...your own safety: Ta— [glitch] —ke shelter in so— [choppy] —lid buildings and m—... [distorted] —ove away from low-lying areas.");
+        englishSubtitles.Add("radio4_line", "Evac—... [static] —uation has en— [signal break] —ded. The boats... [skipping audio] ...have departed. If you st— [dropout] —ill hear this, you must... [glitch] ...seek higher ground and fin— [whine] —d shelter. Try to s— [pause] —end an SOS... with light. If we see... [quiet dropout] ...we’ll come.");
 
         Debug.Log("LanguageManager initialized with English subtitles.");
     }
