@@ -264,7 +264,6 @@ public class Scr_CharacterMovement : MonoBehaviour
                 groundDetected = true; 
 
                 slideGround = hit.collider.CompareTag("slide");
-
             }
             else
             {
@@ -305,12 +304,15 @@ public class Scr_CharacterMovement : MonoBehaviour
         }
         else
         {
-            SetGrounded(false);
-            if (isSliding)
+            if (Physics.SphereCast(positionReferencePoint.position,0.25f, Vector3.down, out hit, 0.65f, groundLayer))
             {
+                SetGrounded(true);
+            }
+            else
+            {
+                SetGrounded(false);
 
             }
-                //SetSliding(false);
         }
     }
 
@@ -380,6 +382,7 @@ public class Scr_CharacterMovement : MonoBehaviour
     {
         isGrounded = value;
         ani.SetBool("isGrounded", value);
+        
     }
 
     private void SetSliding(bool value)
@@ -471,13 +474,17 @@ public class Scr_CharacterMovement : MonoBehaviour
                 if(Vector3.Dot(groundNormal, Vector3.up) < 0.95f)
                     rb.linearVelocity = new Vector3(0, rb.linearVelocity.y * 0.8f, 0);
             }
+            else
+            {
+                CheckForObstacles();
+            }
 
             if (isDragging)
             {
                 ani.SetFloat("DragDir", Vector3.Dot((draggingTransform.position - positionReferencePoint.position).normalized, new Vector3(movementInput.x, 0, movementInput.y).normalized));
             }
 
-            CheckForObstacles();
+            
         }
         else
         {
@@ -518,7 +525,12 @@ public class Scr_CharacterMovement : MonoBehaviour
 
     private void CheckForObstacles()
     {
-
+        RaycastHit hit;
+        if(Physics.Raycast(positionReferencePoint.position + transform.forward * 0.3f - Vector3.up * 0.4f, Vector3.down,out hit, 0.15f, groundLayer))
+        {
+            rb.MovePosition(new Vector3(rb.position.x, hit.point.y, rb.position.z));
+            
+        }
     }
 
     public void Jump(bool value)
