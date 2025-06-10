@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_PlasterSkyblue
   m_Shader: {fileID: -6465566751694194690, guid: 72010249813e131459d6b8cf0cab5a80, type: 3}
-  m_Parent: {fileID: 2100000, guid: 5268981cdfc1a6945aa96ded2f07feda, type: 2}
+  m_Parent: {fileID: 2100000, guid: 762711ade6418654cb3990242db729d6, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
