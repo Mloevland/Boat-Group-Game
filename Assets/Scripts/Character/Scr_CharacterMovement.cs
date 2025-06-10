@@ -64,7 +64,7 @@ public class Scr_CharacterMovement : MonoBehaviour
     {
         if (overrideMovement)
         {
-            //MatchTarget();
+            MatchTarget();
 
             return;
         }
@@ -106,9 +106,9 @@ public class Scr_CharacterMovement : MonoBehaviour
             {
                 RaycastHit hit2;
 
-                if(Physics.Raycast(hit.point + (Vector3.up*2 - hit.normal*0.3f) * transform.localScale.y * raycastScale, Vector3.down, out hit2, 2f * transform.localScale.y * raycastScale, groundLayer))
+                if(Physics.Raycast(hit.point + (Vector3.up*2 - hit.normal*0.1f), Vector3.down, out hit2, 2f * transform.localScale.y * raycastScale, groundLayer))
                 {
-                    PlayOverrideAnimation("Climb",transform.position, new Vector3(hit.point.x,hit2.point.y,hit.point.z),
+                    PlayOverrideAnimation("Climb", positionReferencePoint.position, new Vector3(hit.point.x,hit2.point.y - 0.5f,hit.point.z),
                         Quaternion.LookRotation(new Vector3(hit.point.x, transform.position.y, hit.point.z) - transform.position, Vector3.up), 0.05f, 0.6f);
                     if(climbingRigidbody = hit.collider.GetComponent<Rigidbody>())
                     {
