@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Building09_Mat_Red_Roof 1
   m_Shader: {fileID: -6465566751694194690, guid: 72010249813e131459d6b8cf0cab5a80, type: 3}
-  m_Parent: {fileID: 2100000, guid: 7df1b605d72c1874687a306f0c3f2e49, type: 2}
+  m_Parent: {fileID: 2100000, guid: 31e9831182268d74a861920f898858a8, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []

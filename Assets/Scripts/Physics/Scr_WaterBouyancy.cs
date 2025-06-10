@@ -40,12 +40,15 @@ public class Scr_WaterBouyancy : MonoBehaviour
         if (!floatingTags.Contains(other.tag))
             return;
 
+        Scr_BouyantObject tempBody;
+        if (tempBody = other.GetComponent<Scr_BouyantObject>())
+        {
+            inVolume.Add(tempBody);
+            tempBody.IsInWater(true);
 
-        Scr_BouyantObject tempBody = other.GetComponent<Scr_BouyantObject>();
-        inVolume.Add(tempBody);
-        tempBody.IsInWater(true);
-
-        isEmpty = false;
+            isEmpty = false;
+        }
+        
     }
 
     public void OnTriggerExit(Collider other)
@@ -53,12 +56,16 @@ public class Scr_WaterBouyancy : MonoBehaviour
         if (!floatingTags.Contains(other.tag))
             return;
 
-        Scr_BouyantObject tempBody = other.GetComponent<Scr_BouyantObject>();
-        inVolume.Remove(tempBody);
-        tempBody.IsInWater(false);
+        Scr_BouyantObject tempBody;
+        if(tempBody = other.GetComponent<Scr_BouyantObject>())
+        {
+            inVolume.Remove(tempBody);
+            tempBody.IsInWater(false);
 
-        if (inVolume.Count == 0)
-            isEmpty = true;
+            if (inVolume.Count == 0)
+                isEmpty = true;
+        }
+        
     }
 
     [BurstCompile]

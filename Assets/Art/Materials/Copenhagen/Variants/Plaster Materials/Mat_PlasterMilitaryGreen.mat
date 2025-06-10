@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_PlasterMilitaryGreen
   m_Shader: {fileID: -6465566751694194690, guid: 72010249813e131459d6b8cf0cab5a80, type: 3}
-  m_Parent: {fileID: 2100000, guid: 703d63da3cf0b514e883edec1cac7b03, type: 2}
+  m_Parent: {fileID: 2100000, guid: dae79ff508eeac94db65ad1e7fc79e40, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []

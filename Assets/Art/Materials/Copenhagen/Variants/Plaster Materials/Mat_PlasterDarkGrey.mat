@@ -55,6 +55,6 @@ Material:
     - _UseFresnel: 0
     m_Colors:
     - _Color: {r: 0.35599998, g: 0.33999997, b: 0.31599998, a: 1}
-    - _Shadow_HSV: {r: -20, g: 1.4, b: 15.9, a: 0}
+    - _Shadow_HSV: {r: -151.9, g: 1.83, b: 5.74, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

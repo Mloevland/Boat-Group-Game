@@ -13,6 +13,9 @@ public class Scr_Bird : MonoBehaviour
     private float wanderTimer;
     private Vector3 nextWanderSpot;
 
+    
+    public bool canWander = true;
+
     private void Start()
     {
         wanderTimer = Random.Range(1f, 3f);
@@ -32,6 +35,14 @@ public class Scr_Bird : MonoBehaviour
         flyTimer = Random.Range(-1.5f,0.5f);
         shouldFly = true;
     }
+
+    public void FlyToFood(Vector3 foodPosition)
+    {
+        flyToPosition = foodPosition;
+        flyTimer = Random.Range(-0.5f, 0.3f);
+        shouldFly = true;
+    }
+
 
     public void Update()
     {
@@ -62,6 +73,9 @@ public class Scr_Bird : MonoBehaviour
         }
         else
         {
+            if (!canWander)
+                return;
+
             wanderTimer -= Time.deltaTime;
             if(wanderTimer <= 0)
             {
